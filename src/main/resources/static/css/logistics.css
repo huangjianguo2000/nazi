@@ -1,0 +1,348 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.page {
+    margin: 0 auto;
+    width: 1198px;
+    height: 1740px;
+    background-color: #fff;
+    font-family: 微软雅黑;
+    border: 1px solid #dddddd;
+}
+
+.p-head {
+    width: 1196px;
+    height: 40px;
+    background-color: #f4f4f4;
+    font-size: 13px;
+    margin: 0 auto;
+}
+
+.p-head-l {
+    float: left;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.p-head-r {
+    float: right;
+    margin-top: 10px;
+}
+
+.p-head-r a:link {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.p-head-r a:visited {
+    color: #888;
+    text-decoration: none;
+}
+
+.p-head-r a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.p-neck {
+    width: 100%;
+    height: 42px;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.p-neck-p {
+    margin-left: 50px;
+    font-size: 18px;
+    color: #3c3c3c;
+    padding-top: 7px;
+}
+
+.wuhuqifei {
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.wuhu {
+    width: 1100px;
+    height: 500px;
+    background-color: #B0C4DE;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.wuliuxinxi {
+    margin: 0 auto;
+    width: 1102px;
+    height: 782px;
+    background-color: #eee;
+    margin-top: 40px;
+}
+
+.wuliuxinxi-head {
+    width: 100%;
+    height: 60px;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.wuliuxinxi-status {
+    width: 100%;
+    height: 490px;
+    background-color: #eee;
+}
+
+.wuliuxinxi-foot {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+}
+
+.wuliuxinxi-head-l {
+    float: left;
+    padding: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.wuliuxinxi-head-r {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.wuliuxinxi-head-r button {
+    font-family: 微软雅黑;
+    width: 70px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 3px;
+    color: #f40;
+    border: 1px solid #f40;
+    background-color: #fff;
+    font-weight: bolder;
+}
+
+.wuliuxinxi-head-r button:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #f40;
+}
+
+.wuliuxinxi-status-text {
+    width: 100%;
+    height: 458px;
+    background-color: #eee;
+    margin-top: 30px;
+}
+
+.wuliuxinxi-status-foot {
+    width: 1000px;
+    height: 32px;
+    float: right;
+    text-align: right;
+    background-color: #eee;
+    font-size: 13px;
+    font-family: 微软雅黑;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.wuliuxinxi-status-foot-er {
+    margin-right: 15px;
+    margin-top: 5px;
+    color: #888;
+}
+
+.wuliuxinxi-status-foot-er a:link {
+    color: #333;
+    text-decoration: none;
+}
+
+.wuliuxinxi-status-foot-er a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+.wuliuxinxi-status-foot-er a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.wuliuxinxi-status-text-ul {
+    list-style-type: none;
+    margin-left: 34px;
+    line-height: 30px;
+}
+
+.wuliuxinxi-status-text-ul .date {
+    width: 90px;
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 8px;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+
+.wuliuxinxi-status-text-ul .week {
+    width: 40px;
+    display: inline-block;
+    font-weight: 700;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+
+.wuliuxinxi-status-text-ul .time {
+    width: 50px;
+    display: inline-block;
+    font-family: 微软雅黑;
+    margin-right: 28px;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.wuliuxinxi-status-text-ul .text {
+    width: 800px;
+    display: inline-block;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+
+.wuliuxinxi-status-text-ul .date-hidden {
+    width: 90px;
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 8px;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    visibility: hidden;
+}
+
+.wuliuxinxi-status-text-ul .week-hidden {
+    width: 40px;
+    display: inline-block;
+    font-weight: 700;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    visibility: hidden;
+}
+
+.wuliuxinxi-foot-tupian {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 0px;
+}
+
+.wuliuxinxi-foot-content {
+    width: 900px;
+    height: 200px;
+    float: left;
+    background-color: #eee;
+}
+
+.wuliuxinxi-foot-content-text {
+    margin-left: 70px;
+    margin-top: 30px;
+    line-height: 1.8em;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+
+.wuliuxinxi-foot-content-text-no {
+    color: #333;
+    font-weight: 400;
+}
+
+.wuliuxinxi-foot-content-text-y {
+    color: #333;
+    font-weight: 700;
+}
+
+.wuliuxinxi-foot-content-text-ny {
+    color: #333333;
+    font-weight: 500;
+}
+
+.wuliuxinxi-foot-content-text a:link {
+    text-decoration: none;
+    color: #000;
+}
+
+.wuliuxinxi-foot-content-text a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+.wuliuxinxi-foot-content-text a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.dingdanxinxi {
+    margin: 0 auto;
+    width: 1100px;
+    height: 290px;
+    background-color: #eee;
+}
+
+.dingdanxinxi-all {
+    width: 1000px;
+    font-size: 13px;
+    line-height: 1.9em;
+    margin-left: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 30px;
+}
+
+.dingdanxinxi-all label {
+    font-family: 微软雅黑;
+    font-size: 13px;
+    color: #333;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.dingdanxinxi-all .heitizi {
+    font-family: 微软雅黑;
+    font-size: 13px;
+    color: #333;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.dingdanxinxi-all .baitizi {
+    font-family: 微软雅黑;
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.dingdanxinxi-all a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.dingdanxinxi-all a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.dingdanxinxi-all a:hover {
+    color: #f40;
+    text-decoration: none;
+}

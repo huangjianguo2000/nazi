@@ -1,0 +1,347 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.pj-rate-submit-box {
+    cursor: pointer;
+}
+
+.page {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+    font-size: 13px;
+}
+
+.pj-rate {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.con-head {
+    background: #efefef;
+    border-bottom: 2px solid #f40;
+    position: relative;
+    vertical-align: middle;
+    line-height: 35px;
+    height: 43px;
+}
+
+.con-head-title {
+    float: left;
+    background-color: #f40;
+    padding: 0.6em 2.4em;
+    margin: 0 0.4em 0 0;
+    min-width: 4em;
+    text-align: center;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.help-nav {
+    height: 30px;
+    float: right;
+    margin-top: 5px;
+}
+
+.help-nav li {
+    float: left;
+    margin-left: 2em;
+    color: #606266;
+}
+
+.help-nav li a:link {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.help-nav li a:visited {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.help-nav li a:hover {
+    text-decoration: none;
+    color: #f40;
+}
+
+.hewolianxi {
+    margin-left: 2em;
+}
+
+.con-body {
+    border: 1px solid #DCDFE6;
+}
+
+.conbody-ratelist {
+    margin-top: 30px;
+    clear: both;
+}
+
+.conbody-ratelist-box {
+    width: 100%;
+    border-bottom: 1px #DDD dashed;
+    padding-bottom: 50px;
+}
+
+.ratelist-info {
+    width: 300px;
+    position: relative;
+    float: left;
+    padding: 20px 0 0 100px;
+}
+
+.ratelist-info-detail {
+    width: 130px;
+}
+
+.ratelist-info-detail-img {
+    display: block;
+    background: #F2F2F2;
+    border: 1px solid #E6E6E6;
+    width: 128px;
+    height: 130px;
+    line-height: 127px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ratelist-info-detail-title {
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    margin-top: 5px;
+    width: 123px;
+}
+
+.ratelist-info-detail-title a:link {
+    color: #337ab7;
+}
+
+.ratelist-info-detail-title a:visited {
+    color: #337ab7;
+}
+
+.ratelist-info-detail-title a:hover {
+    color: #f40;
+}
+
+.ratelist-main {
+    float: left;
+    margin-left: 20px;
+    width: 570px;
+}
+
+.ratelist-main-act {
+    margin: 10px 0 20px;
+}
+
+.ratelist-main-msg {
+    border: 1px solid #DAF1FC;
+    padding: 3px;
+    background: #EEF8FD;
+    zoom: 1;
+    height: 150px;
+}
+
+.rate-control {
+    display: inline-block;
+    width: 570px;
+    height: 35px;
+}
+
+.rate-control-img {
+    width: 20px;
+    height: 20px;
+}
+
+.rate-control ul li {
+    vertical-align: middle;
+}
+
+.rate-control p {
+    color: #909399;
+    width: 260px;
+    display: inline-block;
+    font-size: 12px;
+    position: absolute;
+}
+
+.rate-control li label {
+    float: left;
+    padding: 4px 5px;
+    cursor: pointer;
+}
+
+.rate-control li label:hover {
+    background-color: #FCF3DA;
+}
+
+.rate-good-score {
+    background-color: #f40;
+    text-align: center;
+    display: block;
+    color: #FFF;
+    line-height: 14px;
+    padding: 2px;
+    float: left;
+    margin-right: 5px;
+}
+
+.rate-normal-score {
+    background-color: #f0ca01;
+    text-align: center;
+    display: block;
+    color: #FFF;
+    line-height: 14px;
+    padding: 2px;
+    float: left;
+    margin-right: 5px;
+}
+
+.rate-bad-score {
+    background-color: #999;
+    text-align: center;
+    display: block;
+    color: #FFF;
+    line-height: 14px;
+    padding: 2px;
+    float: left;
+    margin-right: 5px;
+}
+
+.ratelist-main-msg-ft {
+    vertical-align: middle;
+}
+
+.mainmsg-bd-textinput {
+    z-index: 0;
+}
+
+.textinput-label {
+    line-height: 1.5;
+    display: block;
+    padding: 5px 0 0 9px;
+    width: 535px;
+    color: #AAA;
+    position: absolute;
+}
+
+.textinput-textarea {
+    padding: 8px;
+    width: 562px;
+    border: 1px solid #CCC;
+    height: 110px;
+    outline: 0;
+    display: block;
+    resize: vertical;
+}
+
+.share-box {
+    padding-top: 5px;
+    float: right;
+    height: 26px;
+    position: relative;
+}
+
+.share-box label {
+    margin-right: 5px;
+    font-weight: 400;
+}
+
+.share-box label input {
+    margin-right: 5px;
+}
+
+.conbody-dsrbox {
+    position: relative;
+    padding: 30px 0 30px 320px;
+}
+
+.dsrbox-title {
+    padding: 15px 0;
+    color: #909399;
+    background: #F3F3F3;
+    width: 130px;
+    text-align: center;
+    position: absolute;
+    left: 98px;
+    top: 45px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stars {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.stars li {
+    margin: 5px 0;
+}
+
+.stars-simple {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.stars li label {
+    line-height: 23px;
+    font-weight: 400;
+}
+
+.stars-tips {
+    margin-left: 10px;
+}
+
+.stars strong {
+    color: #f40;
+    margin-right: 5px;
+}
+
+.pj-rate-submit-box {
+    margin-top: 10px;
+    padding: 50px 0 50px 320px;
+}
+
+.submit-box-a {
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.pj-rate-submit-box a:link {
+    color: #fff;
+    background-color: #3498db;
+    text-decoration: none;
+}
+
+.pj-rate-submit-box a:visited {
+    color: #fff;
+    background-color: #3498db;
+    text-decoration: none;
+}
+
+.pj-rate-submit-box a:hover {
+    color: #3498db;
+    background-color: #fff;
+    text-decoration: none;
+    border: 2px solid #3498db;
+}

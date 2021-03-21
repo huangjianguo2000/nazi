@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>我的购物车</title>
+    <link rel="icon" href="./img/favicon.ico">
+
+    <!--复制的链接-->
+    <link rel="icon" href="./img/icon.ico">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/user_head.css}">
+
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <base th:href="@{/}">
+    <!--复制的链接-->
+</head>
+
+<body style="background-color: #fff">
+<!--head-->
+<!-- 头部栏位 -->
+<!--页面顶部-->
+<!--复制的头部-->
+<!-- 头部导航栏 -->
+<span id="userid" style="display: none">[[${session.id}]]</span>
+<div class="head">
+    <div id="head-Message" class="clearfix layer"
+         style="width: 1230px; height: 30px !important; line-height: 30px; position: fixed; top: -10px; z-index: 1000; background-color: #f4f4f4;">
+        <ul class="fl head_r">
+            <li>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <!--  <span style="color: #3c3c3c;">四川</span> -->
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        四川
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu li1" aria-labelledby="dLabel">
+                        <li>北京</li>
+                        <li>天津</li>
+                        <li>河北</li>
+                        <li>辽宁</li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li style="margin-left: 30px;">
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        客服服务
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+
+                        <li>纳兹帮客</li>
+                        <li>帮助中心</li>
+                        <li>退换/维修</li>
+                        <li>意见反馈</li>
+                        <li>30天包退</li>
+                        <li>售后无忧</li>
+                        <li>在线咨询</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="fr ul2">
+            <li>
+                <a href="/index" class="c">首页</a>
+
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #f40;"></span>
+                <a href="/goCart" class="c">购物车<i style="color: #f40; font-weight: bold; margin-left: 3px;">[[${session.num}]]</i></a>
+
+            </li>
+            <li>
+
+                <a href="#" class="c">收藏夹</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">商品分类</a>
+            </li>
+
+            <li>
+                <a href="#" class="c">网站导航</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">联系客服</a>
+            </li>
+            <li class="ho">
+                <a href="/login" class="c"><p id="user_name">请登录！[[${session.loginUser}]]</p></a>
+                <span style="display: none" id="getUserId">[[${session.id}]]</span>
+                <div class="MyMessage" style="margin-top: -10px">
+                    <img th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                         alt="">
+                    <ul>
+                        <li><a th:href="@{/accountManager}">账号管理</a></li>
+                        <li style="margin-top: -10px"><a href="/logout" class="two">退出</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="outer">
+    <!-- 搜索框那一栏 -->
+    <div class="inner">
+        <img src="./img/NZlogo.png" alt="" class="logo_img">
+        <form action="" method="POST" style="display: inline-block;" autocomplete="off">
+            <div class="myinput">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="put" name="findtext" placeholder="华为" style="color: #999; background-color: #fff"
+                       autocomplete="off" id="find">
+                <span class="glyphicon glyphicon-camera photo" aria-hidden="true"
+                      style="font-size: 15px; position: relative; top: 4px; right:-4px;"></span>
+            </div>
+            <button type="submit" id="btn" class="fr">搜索</button>
+            <div id="returnText">
+                <ul>
+
+                </ul>
+            </div>
+        </form>
+        <div class="two">
+            <p style="font-size: 1px;">加入我们</p>
+            <img src="./img/二维码.png" alt="">
+        </div>
+        <div class="hotkey" id="hotkey-color" style="color: #999;">
+            <a href="#">新款连衣裙</a>
+            <a href="#">四件套</a>
+            <a href="#">潮流T恤</a>
+            <a href="#" style="color: #f40;"> 时尚女鞋</a>
+            <a href="#">短裤</a>
+            <a href="#">半身裙</a>
+            <a href="#">男士外套</a>
+            <a href="#">墙纸</a>
+            <a href="#">新款男鞋</a>
+            <a href="#">耳机</a>
+            <a href="#">时尚女包</a>
+
+        </div>
+    </div>
+    <!-- 右边导航栏 -->
+
+
+</div>
+<!--复制的头部-->
+
+
+<div class="cartBigContent">
+    <!--All goods-->
+    <div class="allgoods">
+        <h4>全部商品<span></span></h4>
+        <div class="cart-main">
+            <div class="yui3-g">
+                <div class="yui3-u-1-4">全部</div>
+                <div class="yui3-u-1-4">商品</div>
+                <div class="yui3-u-1-8">单价（元）</div>
+                <div class="yui3-u-1-8">数量</div>
+                <div class="yui3-u-1-8">小计（元）</div>
+                <div class="yui3-u-1-8">操作</div>
+            </div>
+
+        </div>
+        <div class="cart-tool">
+            <div class="select-all">
+                <input class="chooseAll" type="checkbox" name="" value=""/>
+                <span>全选</span>
+            </div>
+            <div class="option">
+                <a href="#none" style="color:#f40">删除选中的商品</a>
+                <a href="#none" style="color:#f40">移到我的关注</a>
+                <a href="#none" style="color:#f40">清除下柜商品</a>
+            </div>
+            <div class="money-box">
+                <div class="chosed">已选择<span>0</span>件商品</div>
+                <div class="sumprice">
+                    <span><em style="font-style: normal">总价：</em><i class="summoney"
+                                                                    style="font-style: normal"></i></span>
+                    </br>
+                    <span><em style="font-style: normal">已节省：</em><i>¥0.00</i></span>
+                </div>
+                <div class="sumbtn">
+                    <a class="sum-btn" href="getOrderInfo.html" target="_blank"
+                       style="text-decoration: none; color: #fff; font-weight: bold; font-size: 18px;">结算</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 底部栏位 -->
+<!--页面底部-->
+<!--复制的尾部-->
+<div class="footerfinall" style="width: 100%; height: 200px !important;  background-color: #fff; margin-top: 30px;">
+
+
+    <div class="inner" style="width: 1300px; height: 200px; ">
+
+        <dl style="margin-left: 50px">
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>支付方式</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+    </div>
+
+</div>
+
+<div class="footerfinall2">
+    <div style="width: 100%; height: 20px; background-color: #fff;">
+
+    </div>
+    <div class="inner">
+        <p style="height: 15px; line-height: 15px; margin-top: 10px">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+        </p>
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+
+        </p>
+        <p class="zuihou">
+
+            Copyright© 2002-2020，纳兹集团股份有限公司版权所有
+            <span>|</span> 苏公网安备 32010202010078号
+            <span>|</span> 苏ICP备10207551号-4
+        </p>
+        <p class="zuihou">
+            本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）
+        </p>
+        <div class="zuihouimg">
+            <a href="">
+                <img src="./img/ZUI1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI2.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI3.png" alt="">
+            </a>
+
+            <a href="">
+                <img src="./img/ZUI5.png" alt="" style="height: 24px; width: 24px; margin-left: -10px;">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!--页面底部END-->
+<script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+<script th:src="@{/js/cart.js}"></script>
+<script th:src="@{/js/user_head.js}"></script>
+
+
+</body>
+
+</html>

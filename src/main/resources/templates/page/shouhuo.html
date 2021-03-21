@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>收货页面</title>
+    <link rel="stylesheet" th:href="@{/css/shouhuo.css}">
+
+    <!--复制的链接-->
+    <link rel="icon" href="./img/icon.ico">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script th:src="@{/js/jquery-3.5.1.js}"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/user_head.css}">
+    <script th:src="@{/js/user_head.js}"></script>
+    <base th:href="@{/}">
+    <!--复制的链接-->
+</head>
+<body style="background-color: #fff;">
+
+<span id="ord" style="display: none">[[${session.ord}]]</span>
+<!--复制的头部-->
+<!-- 头部导航栏 -->
+<div class="head">
+    <div id="head-Message" class="clearfix layer"
+         style="width: 1230px; background-color: #f4f4f4;">
+        <ul class="fl head_r">
+            <li>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <!--  <span style="color: #3c3c3c;">四川</span> -->
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        四川
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu li1" aria-labelledby="dLabel">
+                        <li>北京</li>
+                        <li>天津</li>
+                        <li>河北</li>
+                        <li>辽宁</li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li style="margin-left: 30px;">
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        客服服务
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+
+                        <li>纳兹帮客</li>
+                        <li>帮助中心</li>
+                        <li>退换/维修</li>
+                        <li>意见反馈</li>
+                        <li>30天包退</li>
+                        <li>售后无忧</li>
+                        <li>在线咨询</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="fr ul2">
+            <li>
+                <a href="/index" class="c">首页</a>
+
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #f40;"></span>
+                <a href="/goCart" class="c">购物车<i style="color: #f40; font-weight: bold; margin-left: 3px;">[[${session.num}]]</i></a>
+
+            </li>
+            <li>
+
+                <a href="#" class="c">收藏夹</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">商品分类</a>
+            </li>
+
+            <li>
+                <a href="#" class="c">网站导航</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">联系客服</a>
+            </li>
+            <li class="ho">
+                <a href="/login" class="c"><p id="user_name">请登录！[[${session.loginUser}]]</p></a>
+                <span style="display: none" id="getUserId">[[${session.id}]]</span>
+                <div class="MyMessage" style="margin-top: -10px">
+                    <img th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                         alt="">
+                    <ul>
+                        <li><a th:href="@{/accountManager}">账号管理</a></li>
+                        <li><a href="/logout" class="two">退出</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="outer">
+    <!-- 搜索框那一栏 -->
+    <div class="inner">
+        <img src="./img/NZlogo.png" alt="" class="logo_img">
+        <form th:action="@{/searchGoods}" method="POST" style="display: inline-block;" autocomplete="off">
+            <div class="myinput">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="put" name="findtext" placeholder="美美的衣服" style="color: #999; background-color: #fff"
+                       autocomplete="off" id="find">
+                <span class="glyphicon glyphicon-camera photo" aria-hidden="true"
+                      style="font-size: 15px; position: relative; top: 4px; right:-4px;"></span>
+            </div>
+            <button type="submit" id="btn" class="fr">搜索</button>
+            <div id="returnText" style="margin-top: 4px">
+                <ul>
+
+                </ul>
+            </div>
+        </form>
+        <div class="two">
+            <p style="font-size: 1px;">加入我们</p>
+            <img src="./img/二维码.png" alt="">
+        </div>
+        <div class="hotkey" id="hotkey-color" style="color: #999;">
+            <a href="#">新款连衣裙</a>
+            <a href="#">四件套</a>
+            <a href="#">潮流T恤</a>
+            <a href="#" style="color: #f40;"> 时尚女鞋</a>
+            <a href="#">短裤</a>
+            <a href="#">半身裙</a>
+            <a href="#">男士外套</a>
+            <a href="#">墙纸</a>
+            <a href="#">新款男鞋</a>
+            <a href="#">耳机</a>
+            <a href="#">时尚女包</a>
+
+        </div>
+    </div>
+    <!-- 右边导航栏 -->
+
+
+</div>
+<!--复制的头部-->
+
+<div class="page">
+    <div class="content">
+        <div class="contenter">
+            <div class="alldetail">
+                <h1 class="">我已收到货，同意支付宝付款</h1>
+                <!--宝贝列表-->
+                <div class="tabspanel">
+                    <div class="tabspanel-bd">
+                        <h2>订单信息</h2>
+                        <div class="tabspanel-bd-body">
+                            <table>
+                                <tbody class="tabs-body-order">
+                                <tr class="sep-row">
+                                    <td colspan="22"></td>
+                                </tr>
+                                <tr class="order-head">
+                                    <th class="item" colspan="7">宝贝</th>
+                                    <th class="status" colspan="2">状态</th>
+                                    <th class="price" colspan="2">单价</th>
+                                    <th class="num" colspan="2">数量</th>
+                                    <th class="discount" colspan="3">优惠</th>
+                                    <th class="allprice" colspan="3">商品总价</th>
+                                    <th class="postfee" colspan="3">运费</th>
+                                </tr>
+                                <tr class="order-item">
+                                    <td class="item" colspan="7">
+                                        <div class="item-pic">
+                                            <div class="o-i-pic">
+                                                <a href="#" target="_blank" title="商品图片">
+                                                    <img id="sureImg" src="./img/shouhuo/xiaomierji29kuai.jpg"
+                                                         alt="小米活塞耳机 基础版清新版入耳式女生通用可爱耳麦手机线控耳塞">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item-txt">
+                                            <div class="desc">
+                                                <div>
+                                                            <span class="name">
+                                                                <a href="#" id="sureDec"
+                                                                   title="小米活塞耳机 基础版清新版入耳式女生通用可爱耳麦手机线控耳塞"
+                                                                   target="_blank">
+                                                                    小米活塞耳机 基础版清新版入耳式女生通用可爱耳麦手机线控耳塞
+                                                                </a>
+                                                            </span>
+                                                </div>
+                                            </div>
+                                            <div class="prop">
+                                                <span>套餐类型: 官方标配</span>
+                                                <span>颜色分类: 黑</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="status" colspan="2">-</td>
+                                    <td class="price" colspan="2">29.00</td>
+                                    <td class="num" colspan="2">1</td>
+                                    <td class="discount" colspan="3">
+                                        纳兹优惠
+                                    </td>
+                                    <td class="allprice" colspan="3">
+                                        <strong id="allp">29.00</strong>
+                                    </td>
+                                    <td class="postfee" colspan="3">
+                                        快递
+                                        <span>0.00</span>
+                                    </td>
+                                </tr>
+                                <tr class="order-foot">
+                                    <td colspan="22">
+                                        <div class="total-price">
+                                            实付款：
+                                            <strong id="relP">
+                                                ￥29.00
+                                            </strong>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tbody class="tabs-misco">
+                                <tr class="sep-row">
+                                    <td colspan="22" style="padding-top:10px;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="22" style="padding-top: 15px;">
+                                        <span class="label">订单编号：</span>
+                                        <span class="dingdanhao">1378739340807498879</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="22">
+                                        <span class="label">支付宝交易号：</span>
+                                        <span class="jiaoyihao">2020112022001111445758527044</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="22">
+                                        <span class="label">卖家昵称：</span>
+                                        <span class="brand">小米官方旗舰店&nbsp;</span>
+                                        <a class="glyphicon glyphicon-ice-lolly-tasted">和我联系</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="22">
+                                        <span class="label">收货信息：</span>
+                                        <span class="">
+													<span id="address">四川省 宜宾市 叙州区 南岸街道 白塔路1号四川轻化工大学宜宾校区1期</span>
+													<span id="name">龚胜豪</span>,
+													<span id="phone">18382160135</span>,
+													<span id="email">644600</span>
+												</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="22">
+                                        <span class="label">成交时间：</span>
+                                        <span class="time">2020-11-20 00:57:52</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tabspanel-er">
+                        <div class="tabspanel-er-target">
+                            <img src="./img/erweima.jpg" alt="" style="width: 100%;height: 100%;">
+                        </div>
+                        <div class="tabspanel-er-text">
+                            <div class="tabspanel-er-text-content">
+                                <p>纳兹商城</p>
+                                <p>晒评价更有范儿</p>
+                                <a href="" target="_blank" class="glyphicon glyphicon-ice-lolly">
+                                    打开纳兹首页
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cashboard">
+                    <div class="paybox">
+                        <ul>
+                            <li class="alert-msg">
+                                请收到货后，再确认收货！否则您可能钱货两空！
+                            </li>
+                            <li class="refund-tips">
+                                如果您想申请退款，<a href="">请点击这里</a>
+                            </li>
+                        </ul>
+                        <form class="zhifubao">
+                            <div class="zfb-head">
+                                <div class="zfb-head-hd">
+                                    <img src="./img/cg.png" alt="" width="20px" height="20px">
+                                    安全设置检测成功！
+                                </div>
+                            </div>
+                            <div class="zfb-body">
+                                <div class="edit">
+                                    <label class="edit-section">支付宝支付密码：</label>
+                                    <input id="getPa" type="text" size="15" style="margin-top: 3px;">
+
+                                    <span class="wangjimima">
+											<a href="#" target="_blank">忘记密码？</a>
+										</span>
+                                    <div class="explain">
+                                        <p class="tix">请输入登录密码</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zfb-foot">
+                                <div class="zfb-foot-button">
+                                    <a id="sure" href="javascript:void(0)">确认</a>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--复制的尾部-->
+<div class="footerfinall" style="width: 100%; height: 200px !important;  background-color: #fff; margin-top: 30px;">
+
+
+    <div class="inner" style="width: 1300px; height: 200px; ">
+
+        <dl style="margin-left: 70px">
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>支付方式</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+    </div>
+
+</div>
+
+<div class="footerfinall2">
+    <div style="width: 100%; height: 20px; background-color: #fff;">
+
+    </div>
+    <div class="inner">
+        <p style="height: 15px; line-height: 15px; margin-top: 10px">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+        </p>
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹互联</a>
+
+        </p>
+        <p class="zuihou">
+
+            Copyright© 2002-2020，纳兹集团股份有限公司版权所有
+            <span>|</span> 苏公网安备 32010202010078号
+            <span>|</span> 苏ICP备10207551号-4
+        </p>
+        <p class="zuihou">
+            本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）
+        </p>
+        <div class="zuihouimg">
+            <a href="">
+                <img src="./img/ZUI1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI2.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI3.png" alt="">
+            </a>
+
+            <a href="">
+                <img src="./img/ZUI5.png" alt="" style="height: 24px; width: 24px; margin-left: -10px;">
+            </a>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/shouhuo.js}"></script>
+</body>
+</html>

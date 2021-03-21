@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" th:href="@{/css/tishi.css}">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <base th:href="@{/}">
+
+    <style>
+        .toast {
+            padding: 15px 0;
+        }
+    </style>
+
+</head>
+<body>
+<div class="toast__container" style="position: fixed; top: 730px; left: 40%; z-index: 100; ">
+    <div class="toast__cell">
+        <div class="toast toast--green" style="display: none">
+            <div class="toast__icon">
+                <svg
+                        version="1.1"
+                        class="toast__svg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 512 512"
+                        style="enable-background: new 0 0 512 512"
+                        xml:space="preserve"
+                >
+              <g>
+                <g>
+                  <path
+                          d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0    c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7    C514.5,101.703,514.499,85.494,504.502,75.496z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            </div>
+            <div class="toast__content">
+                <p class="toast__type" style="margin: 0px; padding: 0px">注册成功， 正在跳转...</p>
+            </div>
+
+        </div>
+
+        <div class="toast toast--blue add-margin" style="display: none">
+            <div class="toast__icon">
+                <svg
+                        version="1.1"
+                        class="toast__svg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 32 32"
+                        style="enable-background: new 0 0 32 32"
+                        xml:space="preserve"
+                >
+              <g>
+                <g id="info">
+                  <g>
+                    <path
+                            d="M10,16c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2H8v4h16v-4h-1.992c-1.102,0-2-0.895-2-2L20,12H8     v4H10z"
+                    ></path>
+                      <circle cx="16" cy="4" r="4"></circle>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            </div>
+            <div class="toast__content">
+                <p class="toast__type">提示</p>
+                <p class="toast__message">
+                    任何有访问权限的人都可以查看你邀请的访问者。
+                </p>
+            </div>
+            <div class="toast__close">
+                <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 15.642 15.642"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        enable-background="new 0 0 15.642 15.642"
+                >
+                    <path
+                            fill-rule="evenodd"
+                            d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061  c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061  l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22l6.541-6.541  l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z"
+                    ></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="toast toast--yellow add-margin" style="display: none">
+            <div class="toast__icon">
+                <svg
+                        version="1.1"
+                        class="toast__svg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 301.691 301.691"
+                        style="enable-background: new 0 0 301.691 301.691"
+                        xml:space="preserve"
+                >
+              <g>
+                <polygon
+                        points="119.151,0 129.6,218.406 172.06,218.406 182.54,0  "
+                ></polygon>
+                  <rect
+                          x="130.563"
+                          y="261.168"
+                          width="40.525"
+                          height="40.523"
+                  ></rect>
+              </g>
+            </svg>
+            </div>
+            <div class="toast__content">
+                <p class="toast__type" style="margin: 0px; padding: 0px">用户名或者密码错误</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="head">
+    <div class="head-f">
+        <img th:src="@{/img/NZlogo.png}" alt="">
+        <span>欢迎注册</span>
+        <a href="/login">立即登录</a>
+    </div>
+    <form class="form-horizontal" action="/register" method="post" id="allsubmit">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+            <div class="col-sm-10">
+                <input type="text" name="username" class="form-control" id="inputEmail3" placeholder="用于登录的账号">
+                <span style="color: red; font-size: 10px; position: absolute;  top: 30px; left: 25px;"
+                      id="check-once"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">昵称</label>
+            <div class="col-sm-10">
+                <input type="text" name="personName" class="form-control" id="inputEmail4" placeholder="昵称">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword2" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword6" class="col-sm-2 control-label">重复密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword6" placeholder="密码">
+                <span id="paissame"
+                      style="color: red; font-size: 10px; position: absolute; top: 30px; left: 25px; display: none">两次密码不一样</span>
+            </div>
+        </div>
+        <!-- 验证码部分 -->
+        <div class="form-group">
+            <label for="yzcode" class="col-sm-2 control-label">验证码</label>
+            <div class="col-sm-10">
+                <input type="text" value="" placeholder="请输入验证码" id="yzcode" class="input-val form-control"
+                       style="width: 200px; "/>
+                <canvas id="canvas" width="100" height="30" style="position: relative; top: -30px;"></canvas>
+            </div>
+
+        </div>
+
+        <div class="form-group" style="margin-top: 0px;">
+            <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
+            <div class="col-sm-10">
+                <input type="text" name="phonenumber" class="form-control" id="getNumber" placeholder="手机号"
+                       style="width: 200px;">
+                <span class="btn setIntervalBtn" style="position: relative; top: -27px; left: -10px;">获得验证码</span>
+                <span style="color: red; font-size: 10px; position: absolute; top: -40px; left: -10px; margin-left: 30px;"
+                      id="themsgerror"></span>
+            </div>
+        </div>
+
+        <!-- 这里结束 -->
+
+        <div class="form-group" style="margin-top: 0px;">
+            <label for="inputPassword1" class="col-sm-2 control-label">验证码</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword1" placeholder="输入验证码">
+                <span style="color: red; font-size: 10px; position: absolute; top: 30px; left: -10px; margin-left: 30px; display: none"
+                      id="phonecodeerror">手机验证码错误</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <span id="checkFinall" class="jk" style="display: inline-block; line-height: 40px; cursor: pointer; background-color: #f60; border: none; width: 300px;
+                height: 40px; color: #fff; border-radius: 5px; margin-left: -300px;">提交注册</span>
+            </div>
+        </div>
+    </form>
+</div>
+<script th:src="@{/js/jquery-3.5.1.js}"></script>
+<script th:src="@{/js/register.js}"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: white;
+    width: 600px;
+    height: 485px;
+}
+
+.talk-head {
+    background-color: #409EFF;
+    width: 600px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.talk-head-img {
+    width: 30px;
+    margin: 10px;
+    color: white;
+}
+
+.talk-head-sp {
+    font-family: '微软雅黑';
+    font-size: 14px;
+    color: white;
+}
+
+.talk-head-bt {
+    text-decoration: none;
+    float: right;
+    margin: 10px;
+    color: white;
+}
+
+.talk-head-bt:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.talk-head-bt:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.talk-head-bt:link {
+    color: white;
+    text-decoration: none;
+}
+
+.talk-body {
+    background-color: #f3f3f3;
+    width: 100%;
+    padding: 10px;
+    height: 280px;
+    overflow: auto;
+}
+
+.atalk {
+    /* margin: 10px; */
+}
+
+.atalk .talkak {
+    display: inline-block;
+    background: #0181cc;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.btalk {
+    /* margin: 10px; */
+    text-align: right;
+    margin-top: 10px;
+}
+
+.btalk .talkbk {
+    display: inline-block;
+    background: #ef8201;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.talk-body-img {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.talk-foot input {
+    width: 100%;
+}
+
+.talk-foot textarea {
+    width: 100%;
+    margin-top: 2px;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 10px;
+    background: #f5f9f5;
+}
+
+.talk-foot button {
+    float: right;
+    border-radius: 10px;
+    display: inline-block;
+    background: #409EFF;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+
+/*滚动条样式*/
+
+.talk-body::-webkit-scrollbar {
+    width: 6px;
+    /*height: 4px;*/
+}
+
+.talk-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.talk-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+}

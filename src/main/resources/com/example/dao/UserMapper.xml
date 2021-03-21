@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.UserDao">
+    <select id="getUser" parameterType="int" resultType="com.example.pojo.User">
+        select * from shopping.user where id=#{id};
+    </select>
+    <select id="getUserList2" parameterType="String" resultType="com.example.pojo.User">
+        select * from shopping.user where username = #{name}
+    </select>
+    <insert id="inserUser">
+        insert into shopping.user (username, password, phoneNumber, personName) values (#{username}, #{password},
+        #{phonenumber}, #{personName})
+    </insert>
+    <update id="uploadUserImg">
+        update shopping.user set imgUrl=#{url} where id=#{id}
+    </update>
+    <update id="updataInfo">
+        update shopping.user set personName=#{name} where id=#{userId}
+    </update>
+    <select id="getUserImg" parameterType="int" resultType="string">
+        select imgUrl from shopping.user where id=#{id}
+    </select>
+</mapper>
+

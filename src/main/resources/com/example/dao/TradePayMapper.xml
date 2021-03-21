@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.TradePayDao">
+    <select id="findStatus" parameterType="string" resultType="string">
+        select trade_status from tradeorder where trade_no = #{tradeNo}
+    </select>
+
+    <insert id="insertOrder" parameterType="com.example.pojo.TradeOrder">
+        insert into tradeorder values
+        (#{outTradeNo},#{tradeNo},#{goodsId},#{subject},#{price},#{quantity},#{totalAmount},#{userId},#{tradeStatus},#{gmtCreate},#{gmtPayment},#{logisticsMode},#{goodsStatus},#{addressId})
+    </insert>
+
+    <select id="getOrderNum" parameterType="int" resultType="int">
+        select count(*) from tradeorder where user_id =#{userId}
+    </select>
+
+    <update id="updateUserOrder" parameterType="int">
+        update shopping.user set num=#{nums} where id = #{id}
+    </update>
+    <update id="setState" parameterType="String">
+        update tradeorder set goods_status=3 where out_trade_no=#{ord}
+    </update>
+    <update id="setState2" parameterType="String">
+        update tradeorder set goods_status=2 where out_trade_no=#{ord}
+    </update>
+    <select id="getTradeOrder" parameterType="int" resultType="com.example.pojo.TradeOrder">
+        select * from tradeorder where user_id = #{user_id}
+    </select>
+    <select id="getTradeOrder2" parameterType="String" resultType="com.example.pojo.TradeOrder">
+        select * from tradeorder where out_trade_no=#{ord}
+    </select>
+    <select id="getAddressId" parameterType="int" resultType="int">
+        select address_id from shopping.address where user_id = #{id} and state = 'mor'
+    </select>
+    <select id="selectGoodId" parameterType="String" resultType="int">
+        select goods_id from tradeorder where out_trade_no=#{ord}
+    </select>
+</mapper>

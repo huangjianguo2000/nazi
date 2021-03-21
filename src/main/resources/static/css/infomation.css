@@ -1,0 +1,153 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bigBox {
+    width: 100%;
+    height: 800px;
+}
+
+.bigBox .inner {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+
+.bigBox .inner .r-nav {
+    height: 800px;
+    width: 200px;
+    display: inline-block;
+    padding-left: 40px;
+    position: relative;
+    top: -50px;
+    font-weight: bold;
+}
+
+.bigBox .inner .r-nav ul {
+    list-style: none;
+}
+
+.bigBox .inner .r-nav ul li {
+    line-height: 35px;
+    font-size: 10px;
+    display: block;
+}
+
+.bigBox .inner .r-nav ul li a {
+    color: #3c3c3c;
+    text-decoration: none;
+}
+
+.bigBox .inner .r-nav ul li a:hover {
+    color: #f40;
+}
+
+.bigBox .inner .box {
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    width: 780px;
+    height: 100%;
+    border-left: 1px solid #dfdfdf;
+}
+
+.bigBox .inner .box .head {
+    background-color: #f9f9f9;
+    width: 600px;
+    height: 40px;
+    line-height: 40px;
+    padding-top: 20px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.bigBox .inner .box .head span {
+    font-weight: bold;
+}
+
+.bigBox .inner .box .change {
+    margin-left: 40px;
+    margin-top: 30px;
+    width: 800px;
+    height: 700px;
+}
+
+.bigBox .inner .box .change img {
+    width: 100px;
+    height: 100px;
+    margin-left: 40px;
+    border: 2px solid #f1efef;
+}
+
+.bigBox .inner .box .change .changehead .upfile {
+    color: #dfdfdf;
+    position: relative;
+    left: -88px;
+    top: 55px;
+    display: none;
+}
+
+.bigBox .inner .box .change .changehead .upfile span {
+    cursor: pointer;
+}
+
+.bigBox .inner .box .change .changehead input {
+    opacity: 0;
+}
+
+#button-show {
+    position: absolute;
+    top: 600px;
+    width: 100px;
+    height: 50px;
+    left: 130px;
+}
+
+#button-show01 {
+    position: absolute;
+    top: 540px;
+    width: 100px;
+    height: 50px;
+    left: 130px;
+}
+
+.address {
+    width: 796px;
+    height: 300px;
+    position: absolute;
+    top: 450px;
+    left: 0px;
+}
+
+tr td {
+    text-align: center;
+    border: 1px solid #dfdfdf;
+}
+
+tr td a {
+    color: #3c3c3c;
+    outline: none;
+}
+
+tr td a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.mor {
+    display: inline;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    border: 1px solid #f40 !important;
+    color: #f40;
+    background-color: #ffd6cc;
+    border-radius: 3px;
+}
+
+tr th {
+    text-align: center;
+    border: 1px solid #dfdfdf;
+}

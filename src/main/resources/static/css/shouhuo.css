@@ -1,0 +1,476 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+    height: 800px;
+}
+
+.alldetail {
+    margin-top: 30px;
+    background-color: #fff;
+    width: 100%;
+    height: 800px;
+}
+
+.alldetail h1 {
+    border-bottom: 1px solid #adc8e6;
+    font-size: 16px;
+    color: #303133;
+    font-weight: 500;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.tabspanel {
+    clear: both;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tabspanel-bd h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tabspanel-bd-body table {
+    table-layout: fixed;
+    width: 960px;
+}
+
+.tabs-body-order td {
+    padding: 8px 10px;
+    line-height: 130%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tabs-body-order th {
+    padding: 8px 10px;
+    line-height: 130%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.sep-row {
+    clear: both;
+}
+
+.order-head th,
+.sep-row td {
+    border-bottom: 1px solid #ddd;
+}
+
+.order-head th {
+    background: #e8f2ff;
+    color: #303133;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-item td {
+    font-size: 12px;
+    color: #303133;
+}
+
+.order-head .item {
+    border-left: 1px solid #ddd;
+}
+
+.order-head .postfee {
+    border-right: 1px solid #ddd;
+}
+
+.order-item .item-pic {
+    display: inline;
+    float: left;
+    margin-right: 5px;
+}
+
+.o-i-pic {
+    overflow: hidden;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.o-i-pic a {
+    width: 50px;
+    height: 50px;
+}
+
+.o-i-pic a img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.order-item td {
+    height: 100%;
+    text-align: center;
+    padding: 8px 10px;
+    line-height: 130%;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.order-item .order-txt {
+    text-align: left;
+    margin-left: 55px;
+    line-height: 18px;
+    color: gray;
+}
+
+.order-item .item-txt {
+    text-align: left;
+    margin-left: 55px;
+    line-height: 18px;
+    color: gray;
+}
+
+.order-item .item-txt .prop {
+    width: auto;
+}
+
+.allprice strong {
+    color: #666;
+    font-size: 16px;
+}
+
+.order-foot {
+    text-align: right;
+}
+
+.total-price {
+    text-align: right;
+    float: right;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.total-price strong {
+    font-size: 18px;
+    font-weight: 400;
+    color: #c00;
+}
+
+.tabs-misco td {
+    padding: 5px 10px;
+    line-height: 25px;
+    font-size: 13px;
+}
+
+.tabs-misco .label {
+    display: block;
+    float: left;
+    width: 90px;
+    text-align: right;
+    margin-right: 10px;
+    color: #303133;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tabs-misco a:link {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.tabs-misco a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.tabs-misco a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.item-txt .desc a:link {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.item-txt .desc a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.item-txt .desc a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.tabspanel-er {
+    position: absolute;
+    bottom: 95px;
+    right: 20px;
+    z-index: 999;
+    width: 220px;
+    height: 80px;
+    background-color: #fff;
+}
+
+.tabspanel-er-target {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.tabspanel-er-text {
+    width: 135px;
+    height: 78px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-left: 0;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.tabspanel-er-text-content {
+    margin: 5px;
+}
+
+.tabspanel-er-text-content p {
+    font-weight: bolder;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.tabspanel-er-text-content a {
+    background-color: #f40;
+    color: #fff;
+    position: absolute;
+    top: 50px;
+    width: 126px;
+    height: 23px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: none;
+    border: 2px solid #fff;
+}
+
+.tabspanel-er-text-content a:link {
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.tabspanel-er-text-content a:visited {
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.tabspanel-er-text-content a:hover {
+    text-decoration: none;
+    color: #f40;
+    background-color: #fff;
+    border: 2px solid #f40;
+}
+
+.cashboard {
+    margin-top: 10px;
+    border: 1px solid #e5e5e5;
+}
+
+.paybox {
+    padding: 26px 100px;
+    background-color: #fff;
+    border: 1px solid #F58B0F;
+}
+
+.paybox li {
+    float: left;
+    list-style-type: disc;
+    margin-bottom: 10px;
+}
+
+.alert-msg {
+    width: 100%;
+    color: #f00000;
+    font-weight: 700;
+    font-size: 14px;
+    list-style-type: disc;
+}
+
+.refund-tips {
+    width: 100%;
+    font-size: 14px;
+    list-style-type: disc;
+}
+
+.refund-tips a:link {
+    color: #337ab7;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.refund-tips a:visited {
+    color: #337ab7;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.refund-tips a:hover {
+    color: #f40;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.zhifubao {
+    width: 800px;
+    height: 250px;
+    display: block;
+}
+
+.zfb-head {
+    font-size: 12px;
+    display: block;
+}
+
+.zfb-head-hd {
+    padding-left: 170px;
+}
+
+.zfb-foot {
+    display: block;
+    padding-left: 170px;
+    height: 80px;
+    padding-top: 20px;
+}
+
+.zfb-foot-button {
+    width: 100%;
+    height: 100%;
+}
+
+.zfb-foot-button a {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: #fff;
+    border: 2px solid #f40;
+    background-color: #f40;
+    letter-spacing: 3px;
+}
+
+.zfb-foot-button a:link {
+    color: #fff;
+    border: 2px solid #f40;
+    background-color: #f40;
+    text-decoration: none;
+}
+
+.zfb-foot-button a:visited {
+    color: #fff;
+    border: 2px solid #f40;
+    background-color: #f40;
+    text-decoration: none;
+}
+
+.zfb-foot-button a:hover {
+    color: #f40;
+    border: 2px solid #f40;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.zfb-body {
+    font-size: 12px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.edit-section {
+    float: left;
+    width: 170px;
+    padding-top: 3px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+}
+
+.password-container {
+    float: left;
+    zoom: 1;
+    width: 176px;
+    height: 26px;
+    position: relative;
+    display: block;
+}
+
+.sixdigital {
+    cursor: text;
+    background: #fff;
+    outline: none;
+    position: relative;
+    padding: 8px 0;
+    height: 26px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+}
+
+.sixdigital i {
+    float: left;
+    display: block;
+    padding: 4px 0;
+    height: 7px;
+    border-left: 1px solid #cccccc;
+}
+
+.sixdigital b {
+    display: block;
+    margin: 0 auto;
+    width: 7px;
+    height: 7px;
+    overflow: hidden;
+}
+
+.wangjimima {
+    margin-left: 10px;
+}
+
+.wangjimima a:link {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.wangjimima a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.wangjimima a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.explain {
+    margin-top: 16px;
+    margin-left: 170px;
+    font-size: 12px;
+    color: #909399;
+}

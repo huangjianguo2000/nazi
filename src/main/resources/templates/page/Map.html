@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <title>Document</title>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #container {
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript"
+            src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=vXuonKmYEv2xO10IFwlKUG29b0Fbe53m"></script>
+</head>
+
+<body>
+<!-- 地图容器 -->
+<div id="container"></div>
+<script>
+    //定位
+    var geolocation = new BMapGL.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            var mk = new BMapGL.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);
+            //alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+        } else {
+            alert('failed' + this.getStatus());
+        }
+    }, {enableHighAccuracy: true})
+
+    var map = new BMapGL.Map("container");
+    var point = new BMapGL.Point(116.404, 39.915);
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    map.setHeading(64.5);   //设置地图旋转角度
+    map.setTilt(73);       //设置地图的倾斜角度
+    var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
+    map.addControl(scaleCtrl);
+    var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
+    map.addControl(zoomCtrl);
+
+    var data_info = [
+        [104.677185, 28.811278, "地址：宜宾市临港经济技术开发区大学城188号<a href='https://www.baidu.com/'>详情</a>"],
+        [104.680527, 28.807069, "地址：宜宾市临港经济技术开发区大学城白塔路<a href='https://www.baidu.com/'>详情</a>"],
+        [104.68318, 28.81001, "地址：四川省宜宾市翠屏区<a href='https://www.baidu.com/'>详情</a>"],
+    ];
+
+    var opts = {
+        width: 500,     // 信息窗口宽度
+        height: 200,     // 信息窗口高度
+        title: "商店详情", // 信息窗口标题
+        enableMessage: true//设置允许信息窗发送短息
+    };
+
+    for (var i = 0; i < data_info.length; i++) {
+        var marker = new BMapGL.Marker(new BMapGL.Point(data_info[i][0], data_info[i][1]));  // 创建标注
+        var content = data_info[i][2];
+        map.addOverlay(marker);               // 将标注添加到地图中
+        addClickHandler(content, marker);
+    }
+
+    function addClickHandler(content, marker) {
+        marker.addEventListener("click", function (e) {
+                openInfo(content, e)
+            }
+        );
+    }
+
+    function openInfo(content, e) {
+        var p = e.target;
+        var point = new BMapGL.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMapGL.InfoWindow(content, opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+    }
+
+
+    // 创建返回按钮
+    var label = new BMapGL.Label('<a href="#">返回首页</a>', opts);
+    // 自定义文本标注样式
+    label.setStyle({
+        color: 'blue',
+        borderRadius: '5px',
+        borderColor: '#ccc',
+        padding: '10px',
+        fontSize: '20px',
+        lineHeight: '30px',
+        fontFamily: '微软雅黑',
+        width: '80px',
+        position: 'absolute',
+        top: '15px',
+        left: '15px'
+    });
+    map.addOverlay(label);
+
+</script>
+</body>
+
+</html>

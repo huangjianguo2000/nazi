@@ -1,0 +1,2003 @@
+@import 'reset.css';
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.head {
+    width: 100%;
+    height: 30px;
+    background-color: #f4f4f4;
+}
+
+#head-Message {
+    height: 20px;
+    width: 1190px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    margin-top: 7px;
+    color: #999;
+}
+
+#head-Message .dropdown ul li:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.ul2 li a {
+    text-decoration: none;
+}
+
+.ul2 li a:hover {
+    color: #f40;
+}
+
+#head-Message .li1 li {
+    display: block;
+}
+
+#head-Message .ul2 li {
+    margin-right: 25px;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.outer {
+    width: 100%;
+    height: 150px;
+}
+
+.outer .inner {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+}
+
+.outer .inner .logo_img {
+    width: 190px;
+    height: 90px;
+    margin-top: 20px;
+}
+
+.outer .inner .myinput {
+    position: relative;
+    top: 10px;
+    border: 2px solid #f40;
+    margin-left: 60px;
+    height: 32px;
+    width: 486px;
+}
+
+.outer .inner .myinput span {
+    margin-left: 5px;
+}
+
+.outer .inner .myinput input {
+    margin-left: 2px;
+    margin-top: 5px;
+    border: none;
+    width: 420px;
+}
+
+.outer .inner .myinput input:focus {
+    outline: none;
+}
+
+.outer .inner button {
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    left: 50px;
+    top: -22px;
+    background-color: #f40;
+    border: none;
+    width: 50px;
+    color: #fff;
+    border-radius: 0 10px 10px 0;
+}
+
+.outer .inner .two {
+    border: 1px solid #eee;
+    display: inline-block;
+    height: 90px;
+    width: 80px;
+    position: relative;
+    left: 200px;
+    top: 30px;
+}
+
+.outer .inner .two p {
+    text-align: center;
+    color: #f40;
+}
+
+.outer .inner .two img {
+    height: 65px;
+    width: 65px;
+    position: relative;
+    left: 8px;
+    bottom: 6px;
+}
+
+.outer .inner #hotkey-color a {
+    position: relative;
+    left: 255px;
+    top: -20px;
+    color: #999;
+    text-decoration: none;
+}
+
+.outer .inner #hotkey-color a:hover {
+    color: #f40;
+}
+
+.outer2 {
+    width: 100%;
+}
+
+.outer2 .content {
+    width: 1190px;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+}
+
+.left_nav {
+    width: 190px;
+    height: 522px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    overflow: hidden;
+}
+
+.left_nav a {
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.left_nav img {
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;
+}
+
+.left_nav a:hover {
+    color: #f40;
+}
+
+.left_nav li {
+    width: 190px;
+}
+
+.left_nav li:hover {
+    background-color: #f2f2f2;
+}
+
+.outer2 .content .bo {
+    width: 750px;
+    height: 490px;
+    display: inline-block;
+    position: relative;
+    top: -28px;
+    overflow: hidden;
+    position: relative;
+    left: 15px;
+    top: 0px;
+}
+
+.outer2 .content .bo ul li img {
+    margin-top: 10px;
+    width: 750px;
+    height: 490px;
+}
+
+.outer2 .content .bo ul {
+    position: relative;
+}
+
+.outer2 .content .bo ul .item {
+    position: absolute;
+    transition: all 1s;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.outer2 .content .bo ul .active {
+    z-index: 0;
+    opacity: 1;
+}
+
+.outer2 .content .bo ul {
+    list-style: none;
+}
+
+.outer2 .content .bo .btn {
+    position: absolute;
+    z-index: 100;
+    opacity: 0.1;
+    top: 200px;
+    height: 50px;
+    outline: none;
+}
+
+.outer2 .content .bo .btn:hover {
+    opacity: 0.5;
+}
+
+.outer2 .content .bo #gonext {
+    right: -7px;
+    border-radius: 20px 0 0 20px;
+}
+
+.outer2 .content .bo #gopre {
+    border-radius: 0 20px 20px 0;
+    left: -7px;
+}
+
+.bo .PointList {
+    position: relative;
+    top: 440px;
+    left: 510px;
+}
+
+.bo .PointList .point {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    float: left;
+    margin-right: 16px;
+    background-color: #f4f4f4;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.bo .PointList .show {
+    opacity: 1;
+}
+
+.outer2 .sehead {
+    width: 1190px;
+    height: 30px;
+    background-image: linear-gradient(to right, #ff9000 0, #ff5000 100%);
+}
+
+.sehead .them {
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+
+.oter2 .them2 {
+    width: 1000px;
+    height: 30px;
+}
+
+.outer2 .them2 span {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 35px;
+    line-height: 30px;
+}
+
+.outer2 .them2 span a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.outer input {
+    background-color: #f4f4f4;
+    outline: none;
+}
+
+.outer input:focus {
+    background-color: #f4f4f4;
+}
+
+.login .head_login {
+    width: 220px;
+    height: 150px;
+}
+
+.login .head_login img {
+    display: inline-block;
+    margin-top: 12px;
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.head_login .describiption {
+    margin-left: 10px;
+    position: relative;
+    top: 18px;
+}
+
+.login .three_button ul li {
+    width: 80px;
+    height: 30px;
+    background-color: #ff8000;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 13px;
+    margin-top: 13px;
+    border-radius: 10px;
+}
+
+.login .three_button ul li:hover {
+    cursor: pointer;
+}
+
+.login .three_button ul li a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+
+.login .mylogo {
+    width: 220px;
+    height: 319px;
+}
+
+.login .mylogo .head {
+    padding: 0px;
+    margin: 0px;
+    background-color: #fff;
+}
+
+.login .mylogo .head li {
+    padding: 0px;
+    margin: 0px;
+}
+
+.login .mylogo .head img {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    top: 10px;
+    left: -5px;
+}
+
+.login .mylogo .head li span a {
+    text-decoration: none;
+    outline: none;
+    color: #3c3c3c;
+    position: relative;
+    top: 12px;
+    left: 17px;
+    cursor: pointer;
+}
+
+.login .mylogo .foot li {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 3px;
+}
+
+.login .mylogo .foot {
+    list-style: none;
+    position: relative;
+    top: 50px;
+    left: -4px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.login .mylogo .foot img {
+    width: 45px;
+    height: 45px;
+}
+
+.outer2 .login {
+    background-color: #fff;
+    width: 220px;
+    height: 485px;
+    display: inline-block;
+    margin-left: 10px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    right: -27px;
+    top: 5px;
+    top: -72px;
+    /* 在这里调 */
+}
+
+.login .mylogo .foot li span a {
+    text-decoration: none;
+    outline: none;
+    color: #3c3c3c;
+    position: relative;
+    top: 8px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.login .mylogo .foot li {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.goods {
+    margin-top: -45px;
+}
+
+.lessprice {
+    width: 587px;
+    height: 298px;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 15px;
+    position: relative;
+    top: -64px;
+}
+
+.kill {
+    width: 588px;
+    height: 298px;
+    margin-left: 10px;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 15px;
+    position: relative;
+    top: -17px;
+    /* 秒杀框的定位 */
+}
+
+.goods .img1 img {
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.killgood img {
+    width: 150px;
+    height: 150px;
+}
+
+.killgood ul li {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.killgood ul li a {
+    text-decoration: none;
+    color: #3c3c3c;
+}
+
+.killgood ul li p {
+    width: 160px;
+    height: 20px;
+    overflow: hidden;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.killgood .price {
+    font-style: normal;
+    float: left;
+    line-height: 21px;
+    color: #F30;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.killgood .price i {
+    font-size: 14px;
+}
+
+.killgood .price em {
+    font-style: normal;
+    margin-left: -5px;
+}
+
+em {
+    font-style: normal;
+}
+
+.killgood .preprice {
+    float: left;
+    line-height: 16px;
+    color: #999;
+    font-size: 12px;
+    margin-left: 6px;
+    margin-top: 3px;
+    text-decoration: line-through;
+}
+
+.killgood ul li .miaoshaimg {
+    float: left;
+    width: 54px;
+    height: 18px;
+    margin: 2px 5px 0 0;
+    border-radius: 0;
+}
+
+.killgood ul p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.killgood ul .alreadysell {
+    color: #999;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.big_nav1 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav1 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav1 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav1 dl {
+    margin-top: 10px;
+}
+
+.big_nav1 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav1 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav1 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav1 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav2 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav2 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav2 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav2 dl {
+    margin-top: 10px;
+}
+
+.big_nav2 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav2 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav2 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav2 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav3 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav3 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav3 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav3 dl {
+    margin-top: 10px;
+}
+
+.big_nav3 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav3 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav3 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav3 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav4 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav4 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav4 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav4 dl {
+    margin-top: 10px;
+}
+
+.big_nav4 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav4 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav4 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav4 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav5 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav5 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav5 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav5 dl {
+    margin-top: 10px;
+}
+
+.big_nav5 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav5 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav5 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav5 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav6 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav6 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav6 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav6 dl {
+    margin-top: 10px;
+}
+
+.big_nav6 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav6 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav6 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav6 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav7 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav7 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav7 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav7 dl {
+    margin-top: 10px;
+}
+
+.big_nav7 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav7 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav7 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav7 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav8 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav8 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav8 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav8 dl {
+    margin-top: 10px;
+}
+
+.big_nav8 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav8 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav8 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav8 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav9 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav9 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav9 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav9 dl {
+    margin-top: 10px;
+}
+
+.big_nav9 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav9 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav9 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav9 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav10 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav10 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav10 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav10 dl {
+    margin-top: 10px;
+}
+
+.big_nav10 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav10 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav10 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav10 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav11 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav11 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav11 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav11 dl {
+    margin-top: 10px;
+}
+
+.big_nav11 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav11 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav11 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav11 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav12 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav12 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav12 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav12 dl {
+    margin-top: 10px;
+}
+
+.big_nav12 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav12 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav12 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav12 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav13 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav13 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav13 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav13 dl {
+    margin-top: 10px;
+}
+
+.big_nav13 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav13 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav13 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav13 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav14 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav14 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav14 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav14 dl {
+    margin-top: 10px;
+}
+
+.big_nav14 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav14 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav14 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav14 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav15 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav15 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav15 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav15 dl {
+    margin-top: 10px;
+}
+
+.big_nav15 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav15 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav15 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav15 dl dd a:hover {
+    color: #ff4000;
+}
+
+.big_nav16 {
+    background-color: #f4f4f4;
+    width: 765px;
+    height: 500px;
+    z-index: 100;
+    position: absolute;
+    left: 190px;
+    display: none;
+    transition: all 1s;
+}
+
+.big_nav16 .head_nav a {
+    /* 隐藏起来的头部的那几个 */
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    width: 80px;
+    height: 25px;
+    background-color: rgb(50, 103, 255);
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 23px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 10px;
+}
+
+.big_nav16 .head_nav a:hover {
+    background-color: rgb(50, 20, 255);
+}
+
+.big_nav16 dl {
+    margin-top: 10px;
+}
+
+.big_nav16 dl dd {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.big_nav16 dl dt {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.big_nav16 dl dd a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    margin-left: 12px;
+    line-height: 28px;
+}
+
+.big_nav16 dl dd a:hover {
+    color: #ff4000;
+}
+
+.get_quan {
+    width: 588px;
+    height: 298px;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    top: -80px;
+    border-radius: 15px;
+}
+
+.get_quan .title {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.get_quan .title a {
+    text-decoration: none;
+    color: #3c3c3c;
+}
+
+.get_quan .title .text {
+    float: left;
+    height: 37px;
+    margin: 10px 0 0 16px;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.get_quan .title p {
+    float: left;
+    font-size: 10px;
+    margin-left: 20px;
+    margin-top: 18px;
+    border: 1px solid #ff5500;
+    border-radius: 20px;
+    color: #ff5500;
+    height: 25px;
+    width: 70px;
+    line-height: 20px;
+}
+
+.get_quan .title a span {
+    font-size: 14px;
+    color: #999;
+}
+
+.get_quan .title a i {
+    display: inline-block;
+    font-size: 14px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #999;
+    border-radius: 100%;
+    line-height: 18px;
+    color: #999;
+    margin-left: -5px;
+}
+
+.get_quan .title .a2 {
+    float: right;
+    margin-right: 10px;
+}
+
+.get_quan .Myimg ul li {
+    text-align: center;
+}
+
+.get_quan .Myimg a img {
+    width: 150px;
+    height: 150px;
+    margin-left: 18px;
+}
+
+.get_quan .Myimg .under {
+    height: 70px;
+    width: 170px;
+    background: url(../img/b1.png);
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.get_quan .Myimg .under .p1 {
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+    width: 140px;
+    color: #f30;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    top: 2px;
+    padding: 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.get_quan .Myimg .under .p2 {
+    color: #f30;
+    margin: 0px;
+    margin-top: 3px;
+}
+
+.get_quan .Myimg .under i {
+    display: block;
+    position: relative;
+    left: 50px;
+    height: 20px;
+    width: 68px;
+    color: #fff;
+    background: #f50;
+    font-size: 12px;
+    border: 1px solid #f50;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.get_quan .lab1 img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 296px;
+}
+
+.get_quan .lab2 img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 496px;
+}
+
+.get_quan .lab0 img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+}
+
+
+/* s */
+
+.bangdan {
+    width: 588px;
+    height: 298px;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 15px;
+    position: relative;
+    top: -57px;
+    margin-left: 10px;
+}
+
+.bangdan .title {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.bangdan .title a {
+    text-decoration: none;
+    color: #3c3c3c;
+}
+
+.bangdan .title .text {
+    float: left;
+    height: 37px;
+    margin: 10px 0 0 16px;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.bangdan .title p {
+    float: left;
+    font-size: 10px;
+    margin-left: 20px;
+    margin-top: 18px;
+    border: 1px solid #ff5500;
+    border-radius: 20px;
+    color: #ff5500;
+    height: 25px;
+    width: 70px;
+    line-height: 20px;
+}
+
+.bangdan .title a span {
+    font-size: 14px;
+    color: #999;
+}
+
+.bangdan .title a i {
+    display: inline-block;
+    font-size: 14px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #999;
+    border-radius: 100%;
+    line-height: 18px;
+    color: #999;
+    margin-left: -5px;
+}
+
+.bangdan .Myimg {
+    height: 215px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.bangdan .title .a2 {
+    float: right;
+    margin-right: 10px;
+}
+
+.bangdan .Myimg ul li {
+    text-align: center;
+}
+
+.bangdan .Myimg a img {
+    width: 150px;
+    height: 150px;
+    margin-left: 18px;
+}
+
+.bangdan .lab1 img {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 200px;
+}
+
+.bangdan .lab2 img {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 382px;
+}
+
+.bangdan .lab0 img {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 10px;
+}
+
+.bangdan .lab0 p {
+    /*   position: absolute; */
+    /*   color: #fff; */
+    left: -50px;
+    top: 20px;
+    z-index: 1000;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    /*  */
+    color: #fff;
+    margin-bottom: -10px;
+}
+
+.bangdan .lab1 p {
+    /*  position: absolute; */
+    position: relative;
+    left: -45px;
+    top: 20px;
+    z-index: 1000;
+    /* color: #fff; */
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.bangdan .lab2 p {
+    /* position: absolute; */
+    position: relative;
+    top: 20px;
+    z-index: 1000;
+    left: -45px;
+    /*  color: #fff; */
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+    margin-bottom: -10px;
+}
+
+.bangdan .name {
+    color: #333;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    width: 170px;
+    margin: 10px 0 2px 0;
+}
+
+.bangdan .huo img {
+    width: 15px;
+    height: 15px;
+    margin-top: -2px;
+}
+
+.bangdan .huo {
+    color: #f40;
+}
+
+.split img {
+    width: 1200px;
+    height: 146px;
+    margin-top: -60px;
+}
+
+.tuijian {
+    width: 1200px;
+    margin-top: 15px;
+}
+
+.tuijian img {
+    width: 100%;
+    height: 73px;
+}
+
+.tuijian .tab_nav ul li .text {
+    position: relative;
+    font-size: 17px;
+    font-weight: bold;
+    height: 24px;
+    letter-spacing: .5px;
+    line-height: 24px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.tuijian .tab_nav ul li {
+    float: left;
+    height: 70px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 6px;
+    cursor: pointer;
+    width: 160px;
+}
+
+.tuijian .tab_nav ul li p .sub_text {
+    font-size: 14px;
+    height: 26px;
+    color: #999;
+    line-height: 26px;
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+
+.tuijian .tab_nav ul li img {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.tuijian .tab_nav ul {
+    width: 1200px;
+    background-color: #fff;
+    height: 70px;
+}
+
+.tuijian .tab_nav ul li .la1 {
+    position: absolute;
+    display: inline-block;
+}
+
+.tuijian .tab_nav ul li .la2 {
+    position: absolute;
+    display: none;
+}
+
+.tuijian .tab_nav ul li .active {
+    background-color: #ff8000;
+    color: #fff !important;
+}
+
+.tuijian .tab_nav ul li .active1 {
+    color: #ff8000 !important;
+}
+
+.kongtiao {
+    width: 1200px;
+    height: 1360px;
+}
+
+.kongtiao ul li {
+    position: relative;
+    float: left;
+    width: 227px;
+    height: 330px;
+    background: #fff;
+    margin: 0 12px 12px 0;
+    border-radius: 6px;
+}
+
+.kongtiao ul li a img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin: 25px 23px 10px;
+    border-radius: 6px;
+}
+
+.kongtiao ul li .zyicon {
+    float: left;
+    width: 35px;
+    height: 18px;
+    margin: 2px 5px 0 0;
+    background: url(../img/zy.png);
+    background-size: 100% 100%;
+}
+
+.kongtiao ul li .title {
+    width: 190px;
+    height: 40px;
+    margin: 0 0 8px 20px;
+    overflow: hidden;
+    color: #333;
+    font: 14px/20px "Microsoft Yahei", tahoma, arial, "Hiragino Sans GB";
+    word-break: break-all;
+}
+
+.kongtiao ul li .price {
+    line-height: 28px;
+    color: #F30;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.kongtiao ul li .preprice {
+    font-size: 13px;
+    line-height: 18px;
+    color: #999;
+    margin-left: 6px;
+    text-decoration: line-through;
+}
+
+.kongtiao ul li .cxicon {
+    position: relative;
+    width: 190px;
+    height: 18px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.kongtiao ul li .cxicon span {
+    position: relative;
+    zoom: 1;
+    display: block;
+    float: left;
+    padding: 0 2px;
+    height: 16px;
+    *min-width: 28px;
+    color: #ff8000;
+    font: 14px/16px "Microsoft Yahei", tahoma, arial, "Hiragino Sans GB";
+    background: #fff;
+    border: 1px solid #ff8000;
+    margin-right: 7px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.sange {
+    font-size: 0px;
+}
+
+.sange a {
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 5px 5px 0 0;
+}
+
+.sange a:first-child {
+    font-size: 10px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 33px;
+    height: 18px;
+    background-image: linear-gradient(to right, #ff9000 0, #ff5000 100%);
+}
+
+.sangea {
+    font-size: 10px;
+    color: #ff4000;
+    display: inline-block;
+    width: 33px;
+    height: 18px;
+}
+
+.sangea:hover {
+    font-size: 10px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 33px;
+    height: 18px;
+    background-color: #f90;
+}
+
+

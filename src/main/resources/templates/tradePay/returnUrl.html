@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>同步页面</title>
+</head>
+<body>
+<!-- 同步页面，用于展示订单，不能作为支付成功的标准 -->
+<!-- 页面未完成 -->
+<span th:text="'商户订单号：'+${out_trade_no}"></span><br>
+<span th:text="'支付宝交易号：'+${trade_no}"></span><br>
+<span th:text="'付款金额：'+${total_amount}"></span><br>
+</body>
+</html>

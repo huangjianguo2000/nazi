@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>支付测试</title>
+</head>
+<body>
+<!-- 支付提交表单 -->
+<form th:action="@{/alipay/payment}" method="post">
+    <!-- 隐藏域提交 -->
+    <!-- 商品id -->
+    <label>商品ID</label><input type="text" name="goods_id"><br>
+    <!-- 订单标题 -->
+    <label>订单标题</label><input type="text" id="subject" name="WIDsubject"/><br>
+    <!-- 商品单价 -->
+    <label>商品单价</label><input type="text" id="price" name="price"/><br>
+    <!-- 商品数量-->
+    <label>商品数量</label><input type="text" id="quantity" name="WIDquantity"><br>
+    <input type="submit" value="购买">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.cartDao">
+    <select id="getCartList" parameterType="int" resultType="com.example.pojo.cart">
+        select * from shopping_cart where user_id = #{userId}
+    </select>
+    <insert id="insertCart">
+        insert into shopping_cart (user_id, good_id, good_nums) values (#{userId}, #{goodId}, #{goodNums})
+    </insert>
+    <delete id="deCart" parameterType="int">
+        delete from shopping_cart where good_id = #{id};
+    </delete>
+</mapper>

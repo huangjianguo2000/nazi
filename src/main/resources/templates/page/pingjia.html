@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>评价宝贝</title>
+
+    <!--复制的链接-->
+    <link rel="icon" href="./img/icon.ico">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script th:src="@{/js/jquery-3.5.1.js}"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/pingjia.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script th:src="@{/js/user_head.js}"></script>
+    <script th:src="@{/js/evaluate.js}"></script>
+    <base th:href="@{/}">
+    <!--复制的链接-->
+</head>
+<body style="background-color: #fff;">
+
+<span id="goodId" style="display: none">[[${goodId}]]</span>
+<!--复制的头部-->
+<!-- 头部导航栏 -->
+<div class="head">
+    <div id="head-Message" class="clearfix layer"
+         style="width: 1230px; background-color: #f4f4f4;">
+        <ul class="fl head_r">
+            <li>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <!--  <span style="color: #3c3c3c;">四川</span> -->
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        四川
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu li1" aria-labelledby="dLabel">
+                        <li>北京</li>
+                        <li>天津</li>
+                        <li>河北</li>
+                        <li>辽宁</li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li style="margin-left: 30px;">
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        客服服务
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+
+                        <li>纳兹帮客</li>
+                        <li>帮助中心</li>
+                        <li>退换/维修</li>
+                        <li>意见反馈</li>
+                        <li>30天包退</li>
+                        <li>售后无忧</li>
+                        <li>在线咨询</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="fr ul2">
+            <li>
+                <a href="/index" class="c">首页</a>
+
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #f40;"></span>
+                <a href="/goCart" class="c">购物车<i style="color: #f40; font-weight: bold; margin-left: 3px;">[[${session.num}]]</i></a>
+
+            </li>
+            <li>
+
+                <a href="#" class="c">收藏夹</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">商品分类</a>
+            </li>
+
+            <li>
+                <a href="#" class="c">网站导航</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">联系客服</a>
+            </li>
+            <li class="ho">
+                <a href="/login" class="c"><p id="user_name">请登录！[[${session.loginUser}]]</p></a>
+                <span style="display: none" id="getUserId">[[${session.id}]]</span>
+                <div class="MyMessage" style="margin-top: -10px">
+                    <img th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                         alt="">
+                    <ul>
+                        <li><a th:href="@{/accountManager}">账号管理</a></li>
+                        <li><a href="/logout" class="two">退出</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="outer">
+    <!-- 搜索框那一栏 -->
+    <div class="inner">
+        <img src="./img/NZlogo.png" alt="" class="logo_img">
+        <form th:action="@{/searchGoods}" method="POST" style="display: inline-block;" autocomplete="off">
+            <div class="myinput">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="put" name="findtext" placeholder="美美的衣服" style="color: #999; background-color: #fff"
+                       autocomplete="off" id="find">
+                <span class="glyphicon glyphicon-camera photo" aria-hidden="true"
+                      style="font-size: 15px; position: relative; top: 4px; right:-4px;"></span>
+            </div>
+            <button type="submit" id="btn" class="fr">搜索</button>
+            <div id="returnText" style="margin-top: 4px">
+                <ul>
+
+                </ul>
+            </div>
+        </form>
+        <div class="two">
+            <p style="font-size: 1px;">加入我们</p>
+            <img src="./img/二维码.png" alt="">
+        </div>
+        <div class="hotkey" id="hotkey-color" style="color: #999;">
+            <a href="#">新款连衣裙</a>
+            <a href="#">四件套</a>
+            <a href="#">潮流T恤</a>
+            <a href="#" style="color: #f40;"> 时尚女鞋</a>
+            <a href="#">短裤</a>
+            <a href="#">半身裙</a>
+            <a href="#">男士外套</a>
+            <a href="#">墙纸</a>
+            <a href="#">新款男鞋</a>
+            <a href="#">耳机</a>
+            <a href="#">时尚女包</a>
+
+        </div>
+    </div>
+    <!-- 右边导航栏 -->
+
+
+</div>
+<!--复制的头部-->
+
+<div class="page">
+    <div class="content">
+        <form class="pj-rate" method="post" action="" id="From">
+            <div class="pj-rate-con-box">
+                <div class="con-head">
+                    <h3 class="con-head-title">评价宝贝</h3>
+                    <ul class="help-nav">
+                        <li>
+                            卖家：<a href="#" target="_blank" id="maijia" style="color: #3c3c3c">湖南二手批发书店</a>
+                            <span class="hewolianxi">
+                                    <a class="glyphicon glyphicon-ice-lolly-tasted"
+                                       title="点此可以直接和卖家交流选好的宝贝"
+                                       href="#" target="_blank" style="color: #3c3c3c">和我联系</a>
+                                </span>
+                        </li>
+                        <li class="con-head-title-pjxz">
+                            <a href="#" style="color: #3c3c3c">
+                                评价须知
+                                <i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </a>
+                            <div class="drop" style="display: none;">
+                                <div class="dropping">
+                                    <h3>评价须知（2009-2-15开始实行）：</h3>
+                                    <p>请您根据本次交易，给予真实、客观、仔细地评价。您的评价将是其他会员的参考，也将影响卖家的信用。</p>
+                                    <p>
+                                        <strong>累积信用计分规则：</strong>
+                                        中评不计分，但会影响卖家的好评率，请慎重给予。每个自然月中，相同买家和卖家之间的信用评价计分不超过6分。
+                                        评价后30天内，您有一次机会删除给对方的中评或差评，或者修改成好评。
+                                    </p>
+                                    <p>
+                                        <strong>动态店铺评分计分规则：</strong>
+                                        店铺评分是匿名的。每个自然月中，相同买家和卖家之间的店铺评分计分次数不超过3次。店铺评分成功后无法修改。
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="con-body">
+                    <div class="con-body-itemlist">
+                        <ul class="conbody-ratelist">
+                            <li class="conbody-ratelist-box">
+                                <div class="ratelist-info">
+                                    <div class="ratelist-info-detail">
+                                        <a href="#" target="_blanl" class="ratelist-info-detail-img">
+                                            <img id="img" style="width: 100%; height: 130px"
+                                                 src="./img/pingjia/sjmsbook.jpg" alt="">
+                                        </a>
+                                        <div class="ratelist-info-detail-title">
+                                            <a href="#" target="_blank" id="gooddec" style="color: #3c3c3c">
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ratelist-main">
+                                    <div class="ratelist-main-act">
+                                        <div class="rate-control">
+                                            <ul style="width: 300px;display: inline-block;">
+                                                <li class="good">
+                                                    <label for="">
+                                                        <input type="radio" class="goodrate" value="0" name="three">
+                                                        <i><img src="./img/pingjia/good.png" alt=""
+                                                                class="rate-control-img"></i>
+                                                    </label>
+                                                    <span class="rate-good-score" style="display: none">
+															卖家
+															<br \>
+															+1分
+														</span>
+                                                </li>
+                                                <li class="normal">
+                                                    <label for="">
+                                                        <input type="radio" class="normalrate" value="1" name="three">
+                                                        <i><img src="./img/pingjia/normal.png" alt=""
+                                                                class="rate-control-img"></i>
+                                                    </label>
+                                                    <span class="rate-normal-score" style="display: none">
+															卖家
+															<br \>
+															+0分
+														</span>
+                                                </li>
+                                                <li class="bad">
+                                                    <label for="">
+                                                        <input type="radio" class="badrate" value="2" name="three">
+                                                        <i><img src="./img/pingjia/bad.png" alt=""
+                                                                class="rate-control-img"></i>
+                                                    </label>
+                                                    <span class="rate-bad-score" style="display: none">
+															卖家
+															<br \>
+															-1分
+														</span>
+                                                </li>
+                                            </ul>
+                                            <p id="decripition">
+                                                亲，很抱歉没能给您带来良好的购物体验，如有不满，
+                                                您可联系卖家协商或发起售后维权。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="ratelist-main-msg">
+                                        <div class="ratelist-main-msg-bd">
+                                            <div class="mainmsg-bd-textinput">
+													<span class="textinput-label">
+
+													</span>
+                                                <textarea name="content" class="textinput-textarea"
+                                                          placeholder="	亲，请评论该本书的内容及质量"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="ratelist-main-msg-ft">
+                                            <div class="share-box">
+                                                <label for="" class="share-box-check">
+                                                    <input type="radio" value="0" name="fabiaofangshi">
+                                                    公开
+                                                </label>
+                                                <label for="" class="share-box-check">
+                                                    <input type="radio" value="0" name="fabiaofangshi">
+                                                    匿名
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="conbody-dsrbox">
+                            <h2 class="dsrbox-title">
+                                <span>店铺动态评分</span>
+                            </h2>
+                            <ul class="stars">
+                                <li style="display: block">
+                                    <label>宝贝与描述相符</label>
+                                    <span class="stars-simple">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+										</span>
+                                    <span class="stars-tips">
+											<strong>0分</strong>
+											<span></span>
+										</span>
+                                </li>
+                                <li style="display: block">
+                                    <label>卖家的服务态度</label>
+                                    <span class="stars-simple2">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+										</span>
+                                    <span class="stars-tips2" style="margin-left: 10px">
+											<strong>0分</strong>
+											<span></span>
+										</span>
+                                </li>
+                                <li style="display: block">
+                                    <label>物流服务的质量</label>
+                                    <span class="stars-simple3">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+											<img src="./img/pingjia/blankstar.png" alt="">
+										</span>
+                                    <span class="stars-tips3" style="margin-left: 10px">
+											<strong>0分</strong>
+											<span></span>
+										</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pj-rate-submit-box">
+                <a href="#" class="submit-box-a" id="submit">发表评论</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--复制的尾部-->
+<div class="footerfinall" style="top: 940px; background-color: #fff">
+    <div class="inner" style="margin-top: -135px; width: 1300px;">
+        <dl style="margin-left: 70px;">
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+
+        </dl>
+        <dl>
+            <dt>支付方式</dt>
+            <dd><a href="">纳兹支付</a></dd>
+            <dd><a href="">网银支付</a></dd>
+            <dd><a href="">快捷支付</a></dd>
+        </dl>
+        <dl>
+            <dt>物流配送</dt>
+            <dd><a href="">运费政策</a></dd>
+            <dd><a href="">物流配送</a></dd>
+            <dd><a href="">物流查询</a></dd>
+        </dl>
+        <dl>
+            <dt>售后服务</dt>
+            <dd><a href="">退换政策</a></dd>
+            <dd><a href="">退换修改</a></dd>
+            <dd><a href="">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt>商家服务</dt>
+            <dd><a href="">培训中心</a></dd>
+            <dd><a href="">商家帮助</a></dd>
+            <dd><a href="">规则中心</a></dd>
+        </dl>
+        <dl>
+            <dt>纳兹商城</dt>
+            <dd><a href="">合作招商</a></dd>
+            <dd><a href="">申诉投诉</a></dd>
+            <dd><a href="">联系客服</a></dd>
+        </dl>
+    </div>
+</div>
+<!--175-->
+<div class="footerfinall2" style="top:1115px;">
+    <div style="width: 100%; height: 20px; background-color: #fff;">
+
+    </div>
+    <div class="inner">
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹金融</a>
+            <span>|</span>
+            <a href="">纳兹支付</a>
+            <span>|</span>
+            <a href="">纳兹物流</a>
+            <span>|</span>
+            <a href="">手机纳兹</a>
+            <span>|</span>
+            <a href="">纳兹视频</a>
+            <span>|</span>
+            <a href="">纳兹商城</a>
+            <span>|</span>
+            <a href="">纳兹智能</a>
+            <span>|</span>
+            <a href="">纳兹云</a>
+            <span>|</span>
+            <a href="">零售云</a>
+            <span>|</span>
+            <a href="">知识产权举报</a>
+            <span>|</span>
+            <a href="">投资者关系</a>
+        </p>
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">联系我们</a>
+            <span>|</span>
+            <a href="">诚聘英才</a>
+            <span>|</span>
+            <a href="">合作招商</a>
+            <span>|</span>
+            <a href="">广告平台</a>
+            <span>|</span>
+            <a href="">纳兹联盟</a>
+            <span>|</span>
+            <a href="">纳兹招标</a>
+            <span>|</span>
+            <a href="">隐私政策</a>
+            <span>|</span>
+            <a href="">用户体验计划</a>
+            <span>|</span>
+            <a href="">股东会员认证</a>
+
+        </p>
+        <p class="zuihou">
+
+            Copyright© 2002-2020，纳兹集团股份有限公司版权所有
+            <span>|</span> 苏公网安备 32010202010078号
+            <span>|</span> 苏ICP备10207551号-4
+        </p>
+        <p class="zuihou">
+            本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）
+        </p>
+        <div class="zuihouimg">
+            <a href="">
+                <img src="./img/ZUI1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI2.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI3.png" alt="">
+            </a>
+
+            <a href="">
+                <img src="./img/ZUI5.png" alt="" style="height: 24px; width: 24px; margin-left: -10px;">
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

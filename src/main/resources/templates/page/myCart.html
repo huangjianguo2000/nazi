@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>已买到的宝贝</title>
+
+
+    <!--复制的链接-->
+    <link rel="icon" th:href="@{/img/icon.ico}">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/jquery.mCustomScrollbar.css}">
+    <link rel="stylesheet" th:href="@{/css/myCart.css}">
+    <link rel="stylesheet" th:href="@{/css/user_head.css}">
+    <script th:src="@{/js/user_head.js}"></script>
+    <script th:src="@{/js/order.js}"></script>
+    <base th:href="@{/}">
+    <!--复制的链接-->
+</head>
+
+<body style="background-color: #fff">
+<!--复制的头部-->
+<!-- 头部导航栏 -->
+<span id="userid" style="display: none">[[${session.id}]]</span>
+<div class="head">
+    <div id="head-Message" class="clearfix layer"
+         style="width: 1230px; height: 30px !important; line-height: 30px; position: fixed; top: -10px; z-index: 1000; background-color: #f4f4f4;">
+        <ul class="fl head_r">
+            <li>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <!--  <span style="color: #3c3c3c;">四川</span> -->
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        四川
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu li1" aria-labelledby="dLabel">
+                        <li>北京</li>
+                        <li>天津</li>
+                        <li>河北</li>
+                        <li>辽宁</li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li style="margin-left: 30px;">
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        客服服务
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+
+                        <li>纳兹帮客</li>
+                        <li>帮助中心</li>
+                        <li>退换/维修</li>
+                        <li>意见反馈</li>
+                        <li>30天包退</li>
+                        <li>售后无忧</li>
+                        <li>在线咨询</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="fr ul2">
+            <li>
+                <a href="/index" class="c">首页</a>
+
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #f40;"></span>
+                <a href="/goCart" class="c">购物车<i style="color: #f40; font-weight: bold; margin-left: 3px;">[[${session.num}]]</i></a>
+
+            </li>
+            <li>
+
+                <a href="#" class="c">收藏夹</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">商品分类</a>
+            </li>
+
+            <li>
+                <a href="#" class="c">网站导航</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">联系客服</a>
+            </li>
+            <li class="ho">
+                <a href="/login" class="c"><p id="user_name">请登录！[[${session.loginUser}]]</p></a>
+                <span style="display: none" id="getUserId">[[${session.id}]]</span>
+                <div class="MyMessage" style="margin-top: -10px">
+                    <img th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                         alt="">
+                    <ul>
+                        <li><a th:href="@{/accountManager}">账号管理</a></li>
+                        <li style="margin-top: -10px"><a href="/logout" class="two">退出</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="outer">
+    <!-- 搜索框那一栏 -->
+    <div class="inner">
+        <img src="./img/NZlogo.png" alt="" class="logo_img" id="returnTextfather">
+        <form th:action="@{/searchGoods}" method="POST" style="display: inline-block;" autocomplete="off">
+            <div class="myinput">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="put" name="findtext" placeholder="美美的衣服" style="color: #999; background-color: #fff"
+                       autocomplete="off" id="find">
+                <span class="glyphicon glyphicon-camera photo" aria-hidden="true"
+                      style="font-size: 15px; position: relative; top: 4px; right:-4px;"></span>
+            </div>
+            <button type="submit" id="btn" class="fr">搜索</button>
+            <div id="returnText">
+                <ul>
+
+                </ul>
+            </div>
+        </form>
+
+        <div class="two">
+            <p style="font-size: 1px;">加入我们</p>
+            <img src="./img/二维码.png" alt="">
+        </div>
+        <div class="hotkey" id="hotkey-color" style="color: #999;">
+            <a href="#">新款连衣裙</a>
+            <a href="#">四件套</a>
+            <a href="#">潮流T恤</a>
+            <a href="#" style="color: #f40;"> 时尚女鞋</a>
+            <a href="#">短裤</a>
+            <a href="#">半身裙</a>
+            <a href="#">男士外套</a>
+            <a href="#">墙纸</a>
+            <a href="#">新款男鞋</a>
+            <a href="#">耳机</a>
+            <a href="#">时尚女包</a>
+
+        </div>
+    </div>
+    <!-- 右边导航栏 -->
+
+
+</div>
+<!--复制的头部-->
+
+<div class="page">
+    <!--左侧列表-->
+    <div class="LeftList">
+        <div class="person-Info">
+            <div class="person-Photo"><img style="width: 48px; height: 48px; border-radius: 50%"
+                                           th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                                           alt="无头像"></div>
+            <div class="person-account">
+                <span class="person-Name" style="width: 100px; height: 25px;">[[${session.loginUser}]]</span>
+                <span class="person-Safe">账户安全</span>
+            </div>
+        </div>
+        <div class="List-item">
+            <dl>
+                <dt class="l-i-all">全部功能</dt>
+                <dd>
+
+                <dt class="l-i-dt"><a href="#"
+                                      target="_blank">我的购物车</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">已买到的宝贝</a></dt>
+                <dd class="l-i-dd"><a href="">我的拍卖</a></dd>
+                <dd class="l-i-dd"><a href="">机票酒店保险</a></dd>
+                <dd class="l-i-dd"><a href="">我的彩票</a></dd>
+                <dd class="l-i-dd"><a href="">官方集运</a></dd>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">购买过的店铺</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">我的发票</a></dt>
+                <dd class="l-i-dd"><a href="">开票信息</a></dd>
+                <dd class="l-i-dd"><a href="">发票管理</a></dd>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">我的收藏</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">我的积分</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">我的优惠信息</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">评价管理</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">退款维权</a></dt>
+                <dd class="l-i-dd"><a href="">退款管理</a></dd>
+                <dd class="l-i-dd"><a href="">投诉管理</a></dd>
+                <dd class="l-i-dd"><a href="">举报管理</a></dd>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">我的足迹</a></dt>
+
+                </dd>
+                <dd>
+
+                <dt class="l-i-dt"><a href="">流量钱包</a></dt>
+
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <!--右侧列表-->
+    <div class="RightList">
+        <div>
+            <div class="Right-head">
+                <div class="right-head-direction">
+                    <div class="right-head-dir">
+							<span class="right-head-dir-01">
+								<a href="myCart.html">所有订单</a>
+							</span>
+                    </div>
+                    <div class="right-head-dir">
+							<span class="right-head-dir-00">
+								<a href="">待付款</a>
+							</span>
+                    </div>
+                    <div class="right-head-dir">
+							<span class="right-head-dir-00">
+								<a href="">待发货</a>
+							</span>
+                    </div>
+                    <div class="right-head-dir">
+							<span class="right-head-dir-00">
+								<a href="">带收货</a>
+							</span>
+                    </div>
+                    <div class="right-head-dir">
+							<span class="right-head-dir-00">
+								<a href="">待评价</a>
+							</span>
+                    </div>
+                    <div class="right-head-dir">
+							<span class="right-head-dir-00">
+								<a href="">分阶段</a>
+							</span>
+                    </div>
+                </div>
+                <div class="right-head-trash">
+                    <a href=""><span class="glyphicon glyphicon-trash">&nbsp;订单回收站</span></a>
+                </div>
+            </div>
+            <div class="Right-search">
+                <input type="text" placeholder="输入商品标题或订单号进行搜索" class="r-search-k">
+                <button type="submit" class="r-search-b">订单搜索</button>
+            </div>
+            <div class="Right-tablelist">
+                <table>
+                    <tr>
+                        <td width="35%">
+                            宝贝
+                        </td>
+                        <td width="5%">
+                            单价
+                        </td>
+                        <td width="5%">数量</td>
+                        <td width="8%">
+                            商品操作
+                        </td>
+                        <td width="10%">
+                            实付款
+                        </td>
+                        <td width="10%">
+                            交易状态
+                        </td>
+                        <td width="10%">
+                            交易操作
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="Right-button">
+                <div class="right-button-left">
+                    <label>
+                        <input type="checkbox" style="margin-right: 4px;">
+                        <span style="font-size: 13px;color: #3c3c3c;font-family: 微软雅黑;font-weight: 400;">全选</span>
+                    </label>
+                </div>
+            </div>
+            <div class="scoll" style="height: 550px; overflow-x: auto; overflow-y: auto">
+                <div class="Right-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--复制的尾部-->
+<div class="footerfinall" style="background-color: #fff">
+    <div class="inner" style="width: 1300px">
+        <dl style="margin-left: 70px">
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+
+        </dl>
+        <dl>
+            <dt>支付方式</dt>
+            <dd><a href="">纳兹支付</a></dd>
+            <dd><a href="">网银支付</a></dd>
+            <dd><a href="">快捷支付</a></dd>
+        </dl>
+        <dl>
+            <dt>物流配送</dt>
+            <dd><a href="">运费政策</a></dd>
+            <dd><a href="">物流配送</a></dd>
+            <dd><a href="">物流查询</a></dd>
+        </dl>
+        <dl>
+            <dt>售后服务</dt>
+            <dd><a href="">退换政策</a></dd>
+            <dd><a href="">退换修改</a></dd>
+            <dd><a href="">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt>商家服务</dt>
+            <dd><a href="">培训中心</a></dd>
+            <dd><a href="">商家帮助</a></dd>
+            <dd><a href="">规则中心</a></dd>
+        </dl>
+        <dl style="position: absolute; left: 1000px;">
+            <dt>纳兹商城</dt>
+            <dd><a href="">合作招商</a></dd>
+            <dd><a href="">申诉投诉</a></dd>
+            <dd><a href="">联系客服</a></dd>
+        </dl>
+    </div>
+</div>
+<!--175-->
+<div class="footerfinall2" style="top:1170px;">
+    <div style="width: 100%; height: 20px; background-color: #fff;">
+
+    </div>
+    <div class="inner">
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹金融</a>
+            <span>|</span>
+            <a href="">纳兹支付</a>
+            <span>|</span>
+            <a href="">纳兹物流</a>
+            <span>|</span>
+            <a href="">手机纳兹</a>
+            <span>|</span>
+            <a href="">纳兹视频</a>
+            <span>|</span>
+            <a href="">纳兹商城</a>
+            <span>|</span>
+            <a href="">纳兹智能</a>
+            <span>|</span>
+            <a href="">纳兹云</a>
+            <span>|</span>
+            <a href="">零售云</a>
+            <span>|</span>
+            <a href="">知识产权举报</a>
+            <span>|</span>
+            <a href="">投资者关系</a>
+        </p>
+        <p style="height: 15px; line-height: 15px;">
+            <a href="">联系我们</a>
+            <span>|</span>
+            <a href="">诚聘英才</a>
+            <span>|</span>
+            <a href="">合作招商</a>
+            <span>|</span>
+            <a href="">广告平台</a>
+            <span>|</span>
+            <a href="">纳兹联盟</a>
+            <span>|</span>
+            <a href="">纳兹招标</a>
+            <span>|</span>
+            <a href="">隐私政策</a>
+            <span>|</span>
+            <a href="">用户体验计划</a>
+            <span>|</span>
+            <a href="">股东会员认证</a>
+
+        </p>
+        <p class="zuihou">
+
+            Copyright© 2002-2020，纳兹集团股份有限公司版权所有
+            <span>|</span> 苏公网安备 32010202010078号
+            <span>|</span> 苏ICP备10207551号-4
+        </p>
+        <p class="zuihou">
+            本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）
+        </p>
+        <div class="zuihouimg">
+            <a href="">
+                <img src="./img/ZUI1.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI2.png" alt="">
+            </a>
+            <a href="">
+                <img src="./img/ZUI3.png" alt="">
+            </a>
+
+            <a href="">
+                <img src="./img/ZUI5.png" alt="" style="height: 24px; width: 24px; margin-left: -10px;">
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

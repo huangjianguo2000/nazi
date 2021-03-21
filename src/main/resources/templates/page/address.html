@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>个人信息</title>
+    <link rel="icon" href="./img/favicon.ico"/>
+
+    <!--复制的链接-->
+    <link rel="icon" href="./img/icon.ico"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+    />
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+            integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous"
+    />
+
+    <script th:src="@{/js/jquery-3.5.1.js}"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" th:href="@{/css/user_head.css}"/>
+    <link rel="stylesheet" th:href="@{/css/infomation.css}">
+    <script th:src="@{/js/information.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <base th:href="@{/}">
+    <!--复制的链接-->
+</head>
+
+<body>
+<!-- 头部导航栏 -->
+<div class="head">
+    <div id="head-Message" class="clearfix layer"
+         style="width: 1230px; height: 30px !important; line-height: 30px; position: fixed; top: -10px; z-index: 1000; background-color: #f4f4f4;">
+        <ul class="fl head_r">
+            <li>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <!--  <span style="color: #3c3c3c;">四川</span> -->
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        四川
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu li1" aria-labelledby="dLabel">
+                        <li>北京</li>
+                        <li>天津</li>
+                        <li>河北</li>
+                        <li>辽宁</li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li style="margin-left: 30px;">
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="c" id="" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="outline: none; border: none;">
+                        客服服务
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+
+                        <li>纳兹帮客</li>
+                        <li>帮助中心</li>
+                        <li>退换/维修</li>
+                        <li>意见反馈</li>
+                        <li>30天包退</li>
+                        <li>售后无忧</li>
+                        <li>在线咨询</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="fr ul2">
+            <li>
+                <a href="/index" class="c">首页</a>
+
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #f40;"></span>
+                <a href="/goCart" class="c">购物车<i style="color: #f40; font-weight: bold; margin-left: 3px;">[[${session.num}]]</i></a>
+
+            </li>
+            <li>
+
+                <a href="#" class="c">收藏夹</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">商品分类</a>
+            </li>
+
+            <li>
+                <a href="#" class="c">网站导航</a>
+
+            </li>
+            <li>
+                <a href="#" class="c">联系客服</a>
+            </li>
+            <li class="ho">
+                <a href="/login" class="c"><p id="user_name">请登录！[[${session.loginUser}]]</p></a>
+                <span style="display: none" id="getUserId">[[${session.id}]]</span>
+                <div class="MyMessage" style="margin-top: -10px">
+                    <img th:src="${session.url}==null ? './img/touxiang.jpg' : 'http://www.handsomehuang.cn:8081/img/userImg/'+${session.url}"
+                         alt="">
+                    <ul>
+                        <li><a th:href="@{/accountManager}">账号管理</a></li>
+                        <li style="margin-top: -10px"><a href="/logout" class="two">退出</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="outer">
+    <!-- 搜索框那一栏 -->
+    <div class="inner" style="width: 1000px; margin-left: -500px">
+        <img src="./img/NZlogo.png" alt="" class="logo_img">
+        <form th:action="@{/searchGoods}" method="POST" style="display: inline-block;" autocomplete="off">
+            <div class="myinput">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="put" name="findtext" placeholder="华为" style="color: #999;" autocomplete="off" id="find">
+                <span class="glyphicon glyphicon-camera photo" aria-hidden="true"
+                      style="font-size: 15px; position: relative; top: 4px; right:-4px;"></span>
+            </div>
+            <button type="submit" id="btn" class="fr">搜索</button>
+            <div id="returnText" style="margin-top: 4px">
+                <ul>
+
+                </ul>
+            </div>
+        </form>
+        <div class="two">
+            <p style="font-size: 1px;">加入我们</p>
+            <img src="./img/二维码.png" alt="">
+        </div>
+        <div class="hotkey" id="hotkey-color" style="color: #999;">
+            <a href="#">新款连衣裙</a>
+            <a href="#">四件套</a>
+            <a href="#">潮流T恤</a>
+            <a href="#" style="color: #f40;"> 时尚女鞋</a>
+            <a href="#">短裤</a>
+            <a href="#">半身裙</a>
+            <a href="#">男士外套</a>
+            <a href="#">墙纸</a>
+            <a href="#">新款男鞋</a>
+            <a href="#">耳机</a>
+            <a href="#">时尚女包</a>
+
+        </div>
+    </div>
+    <!-- 右边导航栏 -->
+
+
+</div>
+
+
+<!-- 中间部分 -->
+
+<div class="bigBox">
+    <div class="inner">
+        <div class="r-nav" style="top: -580px;">
+            <ul>
+                <li><a href="/accountManager">账号管理</a></li>
+                <li><a href="">安全设置</a></li>
+                <li><a href="">个人资料</a></li>
+                <li><a href="">绑定设置</a></li>
+                <li><a href="">应用授权</a></li>
+                <li><a href="" style="color: #f40;">收货地址管理</a></li>
+            </ul>
+
+        </div>
+        <div class="box">
+
+            <div class="change" style="font-size: 10px;">
+                <form enctype="multipart/form-data" method="post">
+                    <span style="position: absolute; top: 10px; color: red;">编辑收货地址</span>
+
+                    <!-- 选择地区 -->
+                    <div class="form-group" style="margin-top: 80px;">
+
+                        <label for="inputEmail3" class="col-sm-2 control-label"
+                               style="font-weight: normal; color: #666;">*居住地:</label>
+                        <fieldset style="position: absolute; left: 80px; top: 25px;">
+
+
+                            <input style="display: none;" type="text" value="" id="addr-show">
+
+                            <!--省份选择-->
+                            <select id="prov" onchange="showCity(this)">
+                                <option>=请选择省份=</option>
+
+                            </select>
+
+                            <!--城市选择-->
+                            <select id="city" onchange="showCountry(this)">
+                                <option>=请选择城市=</option>
+                            </select>
+
+                            <!--县区选择-->
+                            <select id="country" onchange="selecCountry(this)">
+                                <option>=请选择县区=</option>
+                            </select>
+                            <button style="display: none;" type="button" class="btn met1" id="button-show1">确定</button>
+
+                        </fieldset>
+                    </div>
+
+                    <!-- 详细地址 -->
+                    <div class="form-group" style="margin-top: 60px; position: absolute;">
+                        <label for="inputEmail3" class="col-sm-2 control-label"
+                               style="width: 100px; margin-left: -8px; font-weight: normal; color: #666;">*详细地址:</label>
+                        <div class="col-sm-10">
+                            <input style="width: 200px; margin-left: 15px; position: absolute; top: -30px; left: 73px; z-index: 100; "
+                                   type="text" name="username" class="form-control" id="inputEmail5">
+
+                        </div>
+                    </div>
+                    <!-- 邮编-->
+                    <div class="form-group" style="margin-top: 120px; position: absolute; margin-left: -15px;">
+                        <label for="inputEmail3" class="col-sm-2 control-label"
+                               style="width: 100px; margin-left: 15px; font-weight: normal; color: #666;">邮政编码:</label>
+                        <div class="col-sm-10">
+                            <input style="width: 200px; margin-left: 30px; position: absolute; top: -30px; left: 73px; z-index: 100; "
+                                   type="text" name="username" class="form-control" id="inputEmail4">
+
+                        </div>
+                    </div>
+                    <!-- 姓名 -->
+                    <div class="form-group" style="margin-top: 180px; position: absolute; margin-left: -15px;">
+                        <label for="inputEmail3" class="col-sm-2 control-label"
+                               style="width: 100px; margin-left: 15px; font-weight: normal; color: #666;">真实姓名:</label>
+                        <div class="col-sm-10">
+                            <input style="width: 200px; margin-left: 30px; position: absolute; top: -30px; left: 73px; z-index: 100; "
+                                   type="text" name="username" class="form-control" id="inputEmail6">
+
+                        </div>
+                    </div>
+                    <!-- 手机号码 -->
+                    <div class="form-group" style="margin-top: 240px; position: absolute; margin-left: -15px;">
+                        <label for="inputEmail3" class="col-sm-2 control-label"
+                               style="width: 100px; margin-left: 15px; font-weight: normal; color: #666;">手机号码:</label>
+                        <div class="col-sm-10">
+                            <input style="width: 200px; margin-left: 30px; position: absolute; top: -30px; left: 73px; z-index: 100; "
+                                   type="text" name="username" class="form-control" id="inputEmail3">
+
+                        </div>
+                    </div>
+                    <button style="left: 110px; top: 370px; width: 70px; height: 40px; font-size: 10px;" type="button"
+                            class=" met1 btn btn-info" id="button-show">确定
+                    </button>
+                </form>
+
+                <div class="address" style="border-right: solid 1px #dfdfdf !important; font-size: 13px;">
+                    <table class="table table-hover" id="add-addresss">
+                        <tr>
+                            <th>收货人</th>
+                            <th>所在地区</th>
+                            <th>详细地址</th>
+                            <th>邮编</th>
+                            <th>电话/手机</th>
+                            <th>操作</th>
+                            <th></th>
+                        </tr>
+
+                        <!--<tr>
+                            <td style="line-height: 33px;">黄建国</td>
+                            <td style="width: 130px;">四川省 宜宾市 叙州区 南岸街道</td>
+                            <td style="width: 150px;">白塔路1号四川轻化工大学宜宾校区一期</td>
+                            <td style="line-height: 33px;">000000</td>
+                            <td style="line-height: 33px;">86-19162809950</td>
+                            <td style="line-height: 33px;"><a href="">修改</a>|<a href="">删除</a></td>
+                            <td style="line-height: 33px;" class="mor"><a href="">默认地址</a></td>
+                        </tr>-->
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--复制的尾部-->
+<div class="footerfinall" style="top: 925px; height: 200px !important">
+    <div class="inner">
+        <dl>
+            <dt>购物指南</dt>
+            <dd><a href="">免费注册</a></dd>
+            <dd><a href="">会员等级</a></dd>
+            <dd><a href="">常见问题</a></dd>
+        </dl>
+        <dl>
+            <dt>支付方式</dt>
+            <dd><a href="">纳兹支付</a></dd>
+            <dd><a href="">网银支付</a></dd>
+            <dd><a href="">快捷支付</a></dd>
+        </dl>
+        <dl>
+            <dt>物流配送</dt>
+            <dd><a href="">运费政策</a></dd>
+            <dd><a href="">物流配送</a></dd>
+            <dd><a href="">物流查询</a></dd>
+        </dl>
+        <dl>
+            <dt>售后服务</dt>
+            <dd><a href="">退换政策</a></dd>
+            <dd><a href="">退换修改</a></dd>
+            <dd><a href="">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt>商家服务</dt>
+            <dd><a href="">培训中心</a></dd>
+            <dd><a href="">商家帮助</a></dd>
+            <dd><a href="">规则中心</a></dd>
+        </dl>
+        <dl>
+            <dt>纳兹商城</dt>
+            <dd><a href="">合作招商</a></dd>
+            <dd><a href="">申诉投诉</a></dd>
+            <dd><a href="">联系客服</a></dd>
+        </dl>
+    </div>
+</div>
+
+<div class="footerfinall2" style="top: 1150px">
+    <div style="width: 100%; height: 20px; background-color: #fff"></div>
+    <div class="inner">
+        <p style="height: 15px; line-height: 15px">
+            <a href="">纳兹互联</a>
+            <span>|</span>
+            <a href="">纳兹金融</a>
+            <span>|</span>
+            <a href="">纳兹支付</a>
+            <span>|</span>
+            <a href="">纳兹物流</a>
+            <span>|</span>
+            <a href="">手机纳兹</a>
+            <span>|</span>
+            <a href="">纳兹视频</a>
+            <span>|</span>
+            <a href="">纳兹商城</a>
+            <span>|</span>
+            <a href="">纳兹智能</a>
+            <span>|</span>
+            <a href="">纳兹云</a>
+            <span>|</span>
+            <a href="">零售云</a>
+            <span>|</span>
+            <a href="">知识产权举报</a>
+            <span>|</span>
+            <a href="">投资者关系</a>
+        </p>
+        <p style="height: 15px; line-height: 15px">
+            <a href="">联系我们</a>
+            <span>|</span>
+            <a href="">诚聘英才</a>
+            <span>|</span>
+            <a href="">合作招商</a>
+            <span>|</span>
+            <a href="">广告平台</a>
+            <span>|</span>
+            <a href="">纳兹联盟</a>
+            <span>|</span>
+            <a href="">纳兹招标</a>
+            <span>|</span>
+            <a href="">隐私政策</a>
+            <span>|</span>
+            <a href="">用户体验计划</a>
+            <span>|</span>
+            <a href="">股东会员认证</a>
+        </p>
+        <p class="zuihou">
+            Copyright© 2002-2020，纳兹集团股份有限公司版权所有
+            <span>|</span> 苏公网安备 32010202010078号
+            <span>|</span> 苏ICP备10207551号-4
+        </p>
+        <p class="zuihou">
+            本网站直接或间接向消费者推销商品或者服务的商业宣传均属于“广告”（包装及参数、售后保障等商品信息除外）
+        </p>
+        <div class="zuihouimg">
+            <a href="">
+                <img src="./img/ZUI1.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="./img/ZUI2.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="./img/ZUI3.png" alt=""/>
+            </a>
+
+            <a href="">
+                <img
+                        src="./img/ZUI5.png"
+                        alt=""
+                        style="height: 24px; width: 24px; margin-left: -10px"
+                />
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--页面底部END-->
+
+
+<script th:src="@{/js/city.js}"></script>
+<script th:src="@{/js/method.js}"></script>
+<script th:src="@{/js/user_head.js}"></script>
+<script th:src="@{/js/address.js}"></script>
+</body>
+</html>
